@@ -1,0 +1,18 @@
+.navbar{
+  background-color: deepskyblue;
+}
+.active{
+  font-weight: bold;
+}
+#midPromo{
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+.jumbotron{
+  background-color: deepskyblue;
+  margin-bottom: 0;
+
+}
+.carousel-item{
+  max-height: 500px;
+}
