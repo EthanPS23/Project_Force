@@ -16,3 +16,11 @@
 .carousel-item{
   max-height: 500px;
 }
+
+.maxwidth{
+  max-width: 300px;
+}
+
+.margintop{
+  margin-top: 2em;
+}
