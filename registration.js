@@ -7,6 +7,7 @@ function validate(mainform)
 	if (mainform.elements[0].value == "")
 	{
 		alert("First name is required");
+		//mainform.elements[0].btn-danger
 		return false;
 	}
 	// Last name check //
