@@ -130,7 +130,7 @@ div.main {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
-  position: fixed;
+
   top: 0;
   left: 0;
 }
@@ -140,12 +140,15 @@ div.main {
   .sidebar {
     width: 100%;
     height: auto;
-    position: relative;
+    position: fixed;
+    z-index: 2;
   }
   .sidebar a {float: left;}
   div.main {
+      margin-top: 0px; /*change this for where the tool bar start on the page*/
       margin-left: 0;
-      position: fixed;
+
+      padding: 40px; /*change this for where the main starts below the tool bar*/
       top: 0;
       left: 0;
     }
