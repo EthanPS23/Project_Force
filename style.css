@@ -142,10 +142,11 @@ div.main {
     height: auto;
     position: fixed;
     z-index: 2;
+    top: 0%;/*change this for where the tool bar start on the page*/
   }
   .sidebar a {float: left;}
   div.main {
-      margin-top: 0px; /*change this for where the tool bar start on the page*/
+      margin-top: 0; 
       margin-left: 0;
 
       padding: 40px; /*change this for where the main starts below the tool bar*/
