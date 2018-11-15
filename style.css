@@ -1,0 +1,28 @@
+.box{
+  position: relative;
+  margin:15px;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%,-0%);
+  width: 600px;
+  padding: 20px;
+  box-sizing:border-box;
+  background:rgb(211, 211, 211);
+  border-radius: 0px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  display: flex;
+  z-index: 0;
+}
+.content{
+  float: left;
+  display: block;
+  padding-left: 10px;
+}
+.content h2{
+  margin:0;
+  line-height: 25px;
+  padding-left: 0;
+}
+.imgbx{
+  max-width: 100%;
+}
