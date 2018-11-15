@@ -130,6 +130,9 @@ div.main {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -140,7 +143,12 @@ div.main {
     position: relative;
   }
   .sidebar a {float: left;}
-  div.main {margin-left: 0;}
+  div.main {
+      margin-left: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
