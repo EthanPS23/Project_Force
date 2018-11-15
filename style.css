@@ -142,6 +142,7 @@ div.main {
     height: auto;
     position: fixed;
     z-index: 2;
+    left: 0;
     top: 0%;/*change this for where the tool bar start on the page*/
   }
   .sidebar a {float: left;}
@@ -160,5 +161,6 @@ div.main {
   .sidebar a {
     text-align: center;
     float: none;
+    left: 0;
   }
 } 
