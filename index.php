@@ -1,5 +1,6 @@
 <?php
   $pageName = "Home";
+  $pageTitle = "Main Page";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,6 +14,6 @@
     <title>Main Page</title>
   </head>
   <body>
-
+    <?php include("templates/header.php") ?>
   </body>
 </html>

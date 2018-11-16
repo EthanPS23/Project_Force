@@ -1,5 +1,5 @@
 <?php
-
+    $pageArray = array("Home" => "index.php", "Register" => "Register_Page.php", "Contacts" => "Contact_Us.php");
 ?>
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
   <a class="navbar-brand" href="#">LOGO</a>
@@ -11,16 +11,18 @@
 
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
-      <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#">Home</a></li>
-      <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#">Link</a></li>
-      <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#">Link</a> </li>
-      <li class="nav-item dropdown" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop" href="#">More</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Link</a>
-          <a class="dropdown-item" href="#">Link</a>
-        </div>
-      </li>
+      <?php
+        if(!isset($pageName)){
+          $pageName = "";
+        }
+        foreach ($pageArray as $name => $url) {
+          print("<li class=\"nav-item ");
+          if($pageName == $name){
+            print("active");
+          }
+          print("\" onmouseover=\"changeColorG(this)\" onmouseout=\"defaultColor(this)\"><a class=\"nav-link\" href=\"$url\">".$name."</a></li>");
+        }
+      ?>
     </ul>
   </div>
 </nav>
