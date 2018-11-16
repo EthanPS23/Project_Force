@@ -1,3 +1,7 @@
+<?php
+  $pageName = "Register";
+  $pageTitle = "Register With Us";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +11,7 @@
 	<link rel="stylesheet" href="mainStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<title>Register Page</title>
+	<title><?php print($pageTitle); ?></title>
 		<script>
 			function validate(mainform)
 			{
@@ -27,7 +31,7 @@
 		</script>
 
 <body>
-	<?php include("navBar.php") ?>
+	<?php include("templates/header.php") ?>
 	<div class="container">
 		<form id="form1" method="get" action="bouncer.php">
 			<div class="form-row">
@@ -100,5 +104,5 @@
 			<input type="reset" onclick="return confirm('Do you really want to reset?');" />
 		</form>
 	</div>
-	<?php include("footer.php") ?>
+	<?php include("templates/footer.php"); ?>
 </body>
