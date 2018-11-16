@@ -1,4 +1,7 @@
-<?php  ?>
+<?php
+  $pageName = "Contact";
+  $pageTitle = "Contact US";
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,9 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Main Page</title>
   </head>
-
   <body>
-    <script src="mainJava.js"></script>
       <?php include("templates/header.php") ?>
     <div class="container margintop">
       <div class="row justify-content-center">
