@@ -1,4 +1,7 @@
-<?php  ?>
+<?php
+  $pageName = "Contact";
+  $pageTitle = "Contact US";
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,32 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Main Page</title>
   </head>
-
   <body>
-    <script src="mainJava.js"></script>
-    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-      <a class="navbar-brand" href="#">LOGO</a>
-
-      <!-- Toggler/collapsibe Button -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-          <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#">Link</a></li>
-          <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#">Link</a> </li>
-          <li class="nav-item dropdown" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbardrop" href="#">More</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Link</a>
-              <a class="dropdown-item" href="#">Link</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      <?php include("templates/header.php") ?>
     <div class="container margintop">
       <div class="row justify-content-center">
         <div class="col-md-4">
@@ -94,22 +73,7 @@
         </div>
       </div>
     </div>
-    <footer class="container-fluid">
-      <div class="row justify-content-end">
-          <div class="col-xs-2 footercol" id="facebook" onmouseover="changeColor(this)" onmouseout="defaultColor(this)">
-            <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size:30px;color:blue;"></i></a>
-          </div>
-          <div class="col-xs-2 footercol" id="twitter" onmouseover="changeColor(this)" onmouseout="defaultColor(this)">
-            <a href="https://twitter.com/"><i class="fa fa-twitter" style="font-size:30px;color:blue;"></i></a>
-          </div>
-          <div class="col-xs-2 footercol" id="instagram" onmouseover="changeColor(this)" onmouseout="defaultColor(this)">
-            <a href="https://www.instagram.com/"><i class="fa fa-instagram" style="font-size:30px;color:blue;"></i></a>
-          </div>
-          <div class="col-xs-2 footercol" id="linkedin" onmouseover="changeColor(this)" onmouseout="defaultColor(this)">
-            <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" style="font-size:30px;color:blue;"></i></a>
-          </div>
-      </div>
-    </footer>
+    <?php include 'templates/footer.php'; ?>
   </body>
 
 </html>
