@@ -1,3 +1,10 @@
+<?php
+    $dbh = mysqli_connect("localhost","harv","password","travelexperts");
+    if(!$dbh){
+        print("Connection failed: " .mysqli_connect_errno() . "--" .mysqli_connect_errno() . "<br>");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +25,39 @@
     </div>
     <!--<span style="font-size: 30px; cursor:pointer" class="Menu" onclick="openNav()">&#9776;Menu</span>-->
     <div class="main">
-        <div class="box">
+        <?php
+            $sql="select * from packages";
+            $result =mysqli_query($dbh, $sql);
+            if(!$result){
+                print("Query failed: " .mysqli_errno() . "--" . mysqli_error() . "<br>");
+                exit();
+            }
+            $firstrow=true;
+            while($row=mysqli_fetch_assoc($result)){
+                //$keys=array_keys($row);
+                $values=array_values($row);
+
+                print("<div class='box'>");
+                print("<div class='imgbx'>");
+                print("<div class='flex-container'></div>");
+                print("</div>");
+                print("<div class='content'>");
+                print("<h2>$values[1]</h2>");
+                print("<div class='prices'>$" . round($values[5], 2 ) . ".00</div>");
+                $date1=substr($values[2],0,-9);
+                $date2=substr($values[3],0,-9);
+                print("<div class='dates'>$date1 to $date2</div>");
+                print("<p>$values[4]</p>");
+                print("</div>");
+                print("</div>");
+
+
+                //print("$values[1]<br>");
+                //print("$values[2]<br>");
+            }
+
+        ?>
+        <!--<div class="box">
             <div class="imgbx">
                 <div class="flex-container"></div>
             </div>
@@ -36,7 +75,7 @@
                 </p>
             </div>
         </div>
-        <br>
+        <br>-->
     </div>  
 </body>
 
