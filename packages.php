@@ -36,8 +36,9 @@
             while($row=mysqli_fetch_assoc($result)){
                 //$keys=array_keys($row);
                 $values=array_values($row);
-
-                print("<div class='box'>");
+                print("<a href=''>");
+                print("<div class='box' onclick=\"window.location='http://google.com'\">");
+                
                 print("<div class='imgbx'>");
                 print("<div class='flex-container'></div>");
                 print("</div>");
@@ -46,10 +47,19 @@
                 print("<div class='prices'>$" . round($values[5], 2 ) . ".00</div>");
                 $date1=substr($values[2],0,-9);
                 $date2=substr($values[3],0,-9);
-                print("<div class='dates'>$date1 to $date2</div>");
+
+                if((time()-(60*60*24)) < strtotime($date1)){
+                    print("<div class='dates'>$date1 to $date2</div>");
+                }
+                else{
+                    print("<div class='dates' style='color:red; text-decoration: line-through;'>$date1 to $date2</div>");
+                }
+
                 print("<p>$values[4]</p>");
                 print("</div>");
+                
                 print("</div>");
+                print("</a>");
 
 
                 //print("$values[1]<br>");
