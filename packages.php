@@ -36,9 +36,8 @@
             while($row=mysqli_fetch_assoc($result)){
                 //$keys=array_keys($row);
                 $values=array_values($row);
-                print("<a href=''>");
-                print("<div class='box' onclick=\"window.location='http://google.com'\">");
-                
+
+                print("<div class='box' onclick=\"window.location='http://google.com'\">");    
                 print("<div class='imgbx'>");
                 print("<div class='flex-container'></div>");
                 print("</div>");
@@ -56,10 +55,9 @@
                 }
 
                 print("<p>$values[4]</p>");
+                print("</div>");               
                 print("</div>");
-                
-                print("</div>");
-                print("</a>");
+
 
 
                 //print("$values[1]<br>");
