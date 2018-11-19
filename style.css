@@ -14,14 +14,23 @@
   left: 50%;
   transform: translate(-50%,-0%);
   width: 600px;
+  height: 250px;
   padding: 20px;
   box-sizing:border-box;
   background:rgb(211, 211, 211);
   border-radius: 0px;
+  
+  border-color: rgb(43, 255, 0);
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   display: flex;
   z-index: 0;
   cursor: pointer;
+}
+.box:hover{
+
+  border-width: 5px;
+  border-style: solid;
+  border-color: deepskyblue;
 }
 .content{
   float: left;
