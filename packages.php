@@ -16,13 +16,13 @@
 
 <body>
     <!--<div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="sidebar">
         <a href="#packages" class="active">Packages</a>
         <a href="indexyosuke.html">Index</a>
         <a href="Register_Page.php">Register</a>
         <a href="Contact_Us.html">Contact Us</a>
-    </div>
+    </div>-->
     <!--<span style="font-size: 30px; cursor:pointer" class="Menu" onclick="openNav()">&#9776;Menu</span>-->
     <div class="main">
         <?php

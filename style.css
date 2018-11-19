@@ -13,8 +13,14 @@
   top: 0%;
   left: 50%;
   transform: translate(-50%,-0%);
-  width: 600px;
-  height: 250px;
+  max-width: 600px;
+  max-height:250px;
+  height: 25%;
+  /*width: 55%;   Adding the max-width and max-height here 
+  allows the box/card to be more responsive to the screen size versus
+  width and height set as percentages
+
+  height: 25%;*/
   padding: 20px;
   box-sizing:border-box;
   background:rgb(211, 211, 211);
@@ -28,7 +34,7 @@
 }
 .box:hover{
 
-  border-width: 5px;
+  border-width: 3px;
   border-style: solid;
   border-color: deepskyblue;
 }
@@ -137,7 +143,7 @@ body{
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.main {
-  margin-left: 200px;
+  margin-left: 0px;
   padding: 1px 16px;
   height: 1000px;
 
