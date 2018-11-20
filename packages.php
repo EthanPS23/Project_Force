@@ -44,7 +44,7 @@
 
                 print("<div class='box' onclick=\"window.location='http://google.com'\">");
                 print("<div class='imgbx'>");
-                print("<div class='flex-container'></div>");
+                print("<img src='$values[7]' alt='$values[1]' class='flex-container'>");
                 print("</div>");
                 print("<div class='content'>");
                 print("<h2>$values[1]</h2>");
@@ -63,7 +63,7 @@
                 print("</div>");
                 print("</div>");
 
-
+                
 
                 //print("$values[1]<br>");
                 //print("$values[2]<br>");

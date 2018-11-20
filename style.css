@@ -1,8 +1,8 @@
 .flex-container{
-  background-color: #6699ff;
+  /*background-color: #6699ff;*/
   margin: 0px;
-  padding: 25px;
-  width:150px;
+  padding: 0px;
+  width:225px;
   height: 150px;
   display: flex;
   flex: 0 0 100px;
@@ -14,7 +14,7 @@
   left: 50%;
   transform: translate(-50%,-0%);
   max-width: 600px;
-  max-height:250px;
+  max-height:200px;
   height: 25%;
   /*width: 55%;   Adding the max-width and max-height here 
   allows the box/card to be more responsive to the screen size versus
