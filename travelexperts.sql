@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2017 at 12:39 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Nov 20, 2018 at 08:21 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `travelexperts`
 --
-CREATE DATABASE IF NOT EXISTS `travelexperts` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `travelexperts`;
 
 -- --------------------------------------------------------
 
@@ -33,10 +33,6 @@ CREATE TABLE `affiliations` (
   `AffName` varchar(50) DEFAULT NULL,
   `AffDesc` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `affiliations`:
---
 
 --
 -- Dumping data for table `affiliations`
@@ -69,10 +65,6 @@ CREATE TABLE `agencies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `agencies`:
---
-
---
 -- Dumping data for table `agencies`
 --
 
@@ -94,29 +86,24 @@ CREATE TABLE `agents` (
   `AgtBusPhone` varchar(20) DEFAULT NULL,
   `AgtEmail` varchar(50) DEFAULT NULL,
   `AgtPosition` varchar(20) DEFAULT NULL,
-  `AgencyId` int(11) DEFAULT NULL
+  `AgencyId` int(11) DEFAULT NULL,
+  `AgtPassword` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
---
--- RELATIONS FOR TABLE `agents`:
---   `AgencyId`
---       `agencies` -> `AgencyId`
---
 
 --
 -- Dumping data for table `agents`
 --
 
-INSERT INTO `agents` (`AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail`, `AgtPosition`, `AgencyId`) VALUES
-(1, 'Janet', NULL, 'Delton', '(403) 210-7801', 'janet.delton@travelexperts.com', 'Senior Agent', 1),
-(2, 'Judy', NULL, 'Lisle', '(403) 210-7802', 'judy.lisle@travelexperts.com', 'Intermediate Agent', 1),
-(3, 'Dennis', 'C.', 'Reynolds', '(403) 210-7843', 'dennis.reynolds@travelexperts.com', 'Junior Agent', 1),
-(4, 'John', NULL, 'Coville', '(403) 210-7823', 'john.coville@travelexperts.com', 'Intermediate Agent', 1),
-(5, 'Fred', 'J', 'Smith', '(403) 210-5555', 'fred@travelexperts.com', 'Junior Agent', 2),
-(6, 'Bruce', 'J.', 'Dixon', '(403) 210-7867', 'bruce.dixon@travelexperts.com', 'Intermediate Agent', 2),
-(7, 'Beverly', 'S.', 'Jones', '(403) 210-7812', 'beverly.jones@travelexperts.com', 'Intermediate Agent', 1),
-(8, 'Jane', NULL, 'Merrill', '(403) 210-7868', 'jane.merrill@travelexperts.com', 'Senior Agent', 2),
-(9, 'Brian', 'S.', 'Peterson', '(403) 210-7833', 'brian.peterson@travelexperts.com', 'Junior Agent', 2);
+INSERT INTO `agents` (`AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail`, `AgtPosition`, `AgencyId`, `AgtPassword`) VALUES
+(1, 'Janet', NULL, 'Delton', '(403) 210-7801', 'janet.delton@travelexperts.com', 'Senior Agent', 1, NULL),
+(2, 'Judy', NULL, 'Lisle', '(403) 210-7802', 'judy.lisle@travelexperts.com', 'Intermediate Agent', 1, NULL),
+(3, 'Dennis', 'C.', 'Reynolds', '(403) 210-7843', 'dennis.reynolds@travelexperts.com', 'Junior Agent', 1, NULL),
+(4, 'John', NULL, 'Coville', '(403) 210-7823', 'john.coville@travelexperts.com', 'Intermediate Agent', 1, NULL),
+(5, 'Fred', 'J', 'Smith', '(403) 210-5555', 'fred@travelexperts.com', 'Junior Agent', 2, NULL),
+(6, 'Bruce', 'J.', 'Dixon', '(403) 210-7867', 'bruce.dixon@travelexperts.com', 'Intermediate Agent', 2, NULL),
+(7, 'Beverly', 'S.', 'Jones', '(403) 210-7812', 'beverly.jones@travelexperts.com', 'Intermediate Agent', 1, NULL),
+(8, 'Jane', NULL, 'Merrill', '(403) 210-7868', 'jane.merrill@travelexperts.com', 'Senior Agent', 2, NULL),
+(9, 'Brian', 'S.', 'Peterson', '(403) 210-7833', 'brian.peterson@travelexperts.com', 'Junior Agent', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -139,18 +126,6 @@ CREATE TABLE `bookingdetails` (
   `FeeId` varchar(10) DEFAULT NULL,
   `ProductSupplierId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `bookingdetails`:
---   `BookingId`
---       `bookings` -> `BookingId`
---   `RegionId`
---       `regions` -> `RegionId`
---   `ClassId`
---       `classes` -> `ClassId`
---   `FeeId`
---       `fees` -> `FeeId`
---
 
 --
 -- Dumping data for table `bookingdetails`
@@ -319,16 +294,6 @@ CREATE TABLE `bookings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `bookings`:
---   `CustomerId`
---       `customers` -> `CustomerId`
---   `PackageId`
---       `packages` -> `PackageId`
---   `TripTypeId`
---       `triptypes` -> `TripTypeId`
---
-
---
 -- Dumping data for table `bookings`
 --
 
@@ -482,10 +447,6 @@ CREATE TABLE `classes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `classes`:
---
-
---
 -- Dumping data for table `classes`
 --
 
@@ -513,12 +474,6 @@ CREATE TABLE `creditcards` (
   `CCExpiry` datetime NOT NULL,
   `CustomerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `creditcards`:
---   `CustomerId`
---       `customers` -> `CustomerId`
---
 
 --
 -- Dumping data for table `creditcards`
@@ -567,46 +522,43 @@ CREATE TABLE `customers` (
   `CustHomePhone` varchar(20) DEFAULT NULL,
   `CustBusPhone` varchar(20) NOT NULL,
   `CustEmail` varchar(50) NOT NULL,
-  `AgentId` int(11) DEFAULT NULL
+  `AgentId` int(11) DEFAULT NULL,
+  `CustUserId` varchar(20) DEFAULT NULL,
+  `CustPassword` varchar(255) DEFAULT NULL,
+  `unHashedPass` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `customers`:
---   `AgentId`
---       `agents` -> `AgentId`
---
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`CustomerId`, `CustFirstName`, `CustLastName`, `CustAddress`, `CustCity`, `CustProv`, `CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`, `CustEmail`, `AgentId`) VALUES
-(104, 'Laetia', 'Enison', '144-61 87th Ave, NE', 'Edmonton', 'AB', 'T2J 6B6', 'Canada', '4032791223', '4032557865', '                                                  ', 4),
-(105, 'Angel', 'Moskowitz', '320 John St., NE', 'Calgary', 'AB', 'T2J 7E3', 'Canada', '4032794228', '4036409874', 'amoskowitz@home.com                               ', 3),
-(106, 'Judith', 'Olvsade', '29 Elmwood Ave.,', 'Calgary', 'AB', 'T2Z 3M9', 'Canada', '4032795652', '4036861598', 'jolvsade@aol.com                                  ', 1),
-(107, 'Catherine', 'Mierzwa', '22-70 41st St.,NW', 'Calgary', 'AB', 'T2Z 2Z9', 'Canada', '4032796878', '4036404563', 'cmierzwa@msn.com                                  ', 4),
-(108, 'Judy', 'Sethi', '63 Stratton Hall, SW', 'Calgary', 'AB', 'T1Y 6N4', 'Canada', '4032795111', '4036204789', 'judysehti@home.com                                ', 7),
-(109, 'Larry', 'Walter', '38 Bay 26th ST. #2A, NE', 'Calgary', 'AB', 'T2J 6B6', 'Canada', '4032793254', '4032845588', 'lwalter@aol.com                                   ', 4),
-(114, 'Winsome', 'Laporte', '268 E.3rd St, SW', 'Calgary', 'AB', 'T1Y 6N4', 'Canada', '4032691125', '4032844565', '                                                  ', 8),
-(117, 'Nancy', 'Kuehn', '44-255 9th St., SW', 'Calgary', 'AB', 'T1Y 6N5', 'Canada', '4032693965', '4032843211', '                                                  ', 6),
-(118, 'Hiedi', 'Lopez', '168 Rowayton Ave, NW', 'Calgary', 'AB', 'T3A 4ZG', 'Canada', '4032699856', '4035901587', 'hlopez@aol.com                                    ', 4),
-(119, 'Mardig', 'Abdou', '160-04 32nd Ave., SW', 'Calgary', 'AB', 'T2P 2G7', 'Canada', '4032691429', '4032251952', '                                                  ', 9),
-(120, 'Ralph', 'Alexander', '2054 73rd St, SW', 'Calgary', 'AB', 'T2P 2G7', 'Canada', '4032691634', '4032256547', '                                                  ', 1),
-(121, 'Sean', 'Pineda', '3 Salem Rd., NW', 'Calgary', 'AB', 'T2K 3E3', 'Canada', '4032691954', '4036864444', 'spineda@hotmail.com                               ', 3),
-(122, 'Julita', 'Lippen', '51-76 VanKleeck St., NW', 'Calgary', 'AB', 'T2K 6C5', 'Canada', '4032551956', '4035901478', 'jlippen@cadvision.co                              ', 4),
-(123, 'Pierre', 'Radicola', '322 Atkins Ave., SE', 'Calgary', 'AB', 'T3G 2C6', 'Canada', '4032551677', '4036867536', 'pradicola@home.com                                ', 8),
-(127, 'Gary', 'Aung', '135-32 Louis Blvd, NE', 'Calgary', 'AB', 'T2V 2K5', 'Canada', '4032807858', '4037501587', '                                                  ', 9),
-(128, 'Jeff', 'Runyan', '109-15 Queens Blvd., NE', 'Calgary', 'AB', 'T2V 2K6', 'Canada', '4032809635', '4036201122', 'jrunyan@aol.com                                   ', 4),
-(130, 'Lula', 'Oates', '11A Emory St., NE', 'Calgary', 'AB', 'T3E 3Z4', 'Canada', '4032439653', '4036861587', 'loates@aol.com                                    ', 9),
-(133, 'James', 'Reed', '109-621 96th St, NE', 'Calgary', 'AB', 'T3E 4A1', 'Canada', '4032432358', '4037201155', 'jreed@aol.com                                     ', 2),
-(135, 'Michellexxxxxxxxxxxxxx', 'Masser', '379 Ovington Ave, NE', 'Calgary', 'AB', 'T2J 2S9', 'Canada', '4032441586', '4035908522', 'mmasser@aol.com                                   ', 6),
-(138, 'John', 'Smith', '45 Plaza St. West #2D, NE', 'Calgary', 'AB', 'T3E 5C7', 'Canada', '4032449653', '4032837896', 'johnSmith@hotmail.co                              ', 7),
-(139, 'Angelo', 'Garshman', '82 Western Ave., NE', 'Calgary', 'AB', 'T3E 5C8', 'Canada', '4032259966', '4032696541', '                                                  ', 3),
-(140, 'Derrick', 'Baltazar', '9111 Church Ave. #3N, NE', 'Calgary', 'AB', 'T3E 5C9', 'Canada', '4032255231', '4037502547', '                                                  ', 6),
-(141, 'Robert', 'Boyd', '96-04 57th Ave #12A, NE', 'Calgary', 'AB', 'T3E 5C5', 'Canada', '4032255647', '4037509512', '                                                  ', 3),
-(142, 'Monica', 'Waldman', '257 Depot Rd., NE', 'Calgary', 'AB', 'T2J 6P3', 'Canada', '4032255629', '4032844566', 'mwaldman@aol.com                                  ', 2),
-(143, 'Gerard', 'Biers', '205 19th St., NE', 'Calgary', 'AB', 'T2J 6B6', 'Canada', '4032251952', '4037506578', '                                                  ', 8),
-(144, 'z', 'z', 'z', 'z', 'Z', 'Z1Z1Z1', 'z', '5555555555', '2222222222', 'z@z.zz', 1);
+INSERT INTO `customers` (`CustomerId`, `CustFirstName`, `CustLastName`, `CustAddress`, `CustCity`, `CustProv`, `CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`, `CustEmail`, `AgentId`, `CustUserId`, `CustPassword`, `unHashedPass`) VALUES
+(104, 'Laetia', 'Enison', '144-61 87th Ave, NE', 'Edmonton', 'AB', 'T2J 6B6', 'Canada', '4032791223', '4032557865', '                                                  ', 4, 'user1', '$2y$10$S9GwMqAuxom6yskwe6e6D.UYouUAUxmEaWq1lJY5tK7QNiQY1hbmi', 'pass1'),
+(105, 'Angel', 'Moskowitz', '320 John St., NE', 'Calgary', 'AB', 'T2J 7E3', 'Canada', '4032794228', '4036409874', 'amoskowitz@home.com                               ', 3, 'user2', '$2y$10$TZ3fA1zQuAHqtbKHsyUPw.qGY4j6v2Z97YpCXVzHYX./1Z.eKspyW', 'pass2'),
+(106, 'Judith', 'Olvsade', '29 Elmwood Ave.,', 'Calgary', 'AB', 'T2Z 3M9', 'Canada', '4032795652', '4036861598', 'jolvsade@aol.com                                  ', 1, 'user3', '$2y$10$/k.78B9A6TJa0sAEA2pW7ua9yKiv63k1H0B25xj0sLLfbb4wnQLgO', 'pass3'),
+(107, 'Catherine', 'Mierzwa', '22-70 41st St.,NW', 'Calgary', 'AB', 'T2Z 2Z9', 'Canada', '4032796878', '4036404563', 'cmierzwa@msn.com                                  ', 4, NULL, NULL, NULL),
+(108, 'Judy', 'Sethi', '63 Stratton Hall, SW', 'Calgary', 'AB', 'T1Y 6N4', 'Canada', '4032795111', '4036204789', 'judysehti@home.com                                ', 7, NULL, NULL, NULL),
+(109, 'Larry', 'Walter', '38 Bay 26th ST. #2A, NE', 'Calgary', 'AB', 'T2J 6B6', 'Canada', '4032793254', '4032845588', 'lwalter@aol.com                                   ', 4, NULL, NULL, NULL),
+(114, 'Winsome', 'Laporte', '268 E.3rd St, SW', 'Calgary', 'AB', 'T1Y 6N4', 'Canada', '4032691125', '4032844565', '                                                  ', 8, NULL, NULL, NULL),
+(117, 'Nancy', 'Kuehn', '44-255 9th St., SW', 'Calgary', 'AB', 'T1Y 6N5', 'Canada', '4032693965', '4032843211', '                                                  ', 6, NULL, NULL, NULL),
+(118, 'Hiedi', 'Lopez', '168 Rowayton Ave, NW', 'Calgary', 'AB', 'T3A 4ZG', 'Canada', '4032699856', '4035901587', 'hlopez@aol.com                                    ', 4, NULL, NULL, NULL),
+(119, 'Mardig', 'Abdou', '160-04 32nd Ave., SW', 'Calgary', 'AB', 'T2P 2G7', 'Canada', '4032691429', '4032251952', '                                                  ', 9, NULL, NULL, NULL),
+(120, 'Ralph', 'Alexander', '2054 73rd St, SW', 'Calgary', 'AB', 'T2P 2G7', 'Canada', '4032691634', '4032256547', '                                                  ', 1, NULL, NULL, NULL),
+(121, 'Sean', 'Pineda', '3 Salem Rd., NW', 'Calgary', 'AB', 'T2K 3E3', 'Canada', '4032691954', '4036864444', 'spineda@hotmail.com                               ', 3, NULL, NULL, NULL),
+(122, 'Julita', 'Lippen', '51-76 VanKleeck St., NW', 'Calgary', 'AB', 'T2K 6C5', 'Canada', '4032551956', '4035901478', 'jlippen@cadvision.co                              ', 4, NULL, NULL, NULL),
+(123, 'Pierre', 'Radicola', '322 Atkins Ave., SE', 'Calgary', 'AB', 'T3G 2C6', 'Canada', '4032551677', '4036867536', 'pradicola@home.com                                ', 8, NULL, NULL, NULL),
+(127, 'Gary', 'Aung', '135-32 Louis Blvd, NE', 'Calgary', 'AB', 'T2V 2K5', 'Canada', '4032807858', '4037501587', '                                                  ', 9, NULL, NULL, NULL),
+(128, 'Jeff', 'Runyan', '109-15 Queens Blvd., NE', 'Calgary', 'AB', 'T2V 2K6', 'Canada', '4032809635', '4036201122', 'jrunyan@aol.com                                   ', 4, NULL, NULL, NULL),
+(130, 'Lula', 'Oates', '11A Emory St., NE', 'Calgary', 'AB', 'T3E 3Z4', 'Canada', '4032439653', '4036861587', 'loates@aol.com                                    ', 9, NULL, NULL, NULL),
+(133, 'James', 'Reed', '109-621 96th St, NE', 'Calgary', 'AB', 'T3E 4A1', 'Canada', '4032432358', '4037201155', 'jreed@aol.com                                     ', 2, NULL, NULL, NULL),
+(135, 'Michelle', 'Masser', '379 Ovington Ave, NE', 'Calgary', 'AB', 'T2J 2S9', 'Canada', '4032441586', '4035908522', 'mmasser@aol.com                                   ', 6, NULL, NULL, NULL),
+(138, 'John', 'Smith', '45 Plaza St. West #2D, NE', 'Calgary', 'AB', 'T3E 5C7', 'Canada', '4032449653', '4032837896', 'johnSmith@hotmail.co                              ', 7, NULL, NULL, NULL),
+(139, 'Angelo', 'Garshman', '82 Western Ave., NE', 'Calgary', 'AB', 'T3E 5C8', 'Canada', '4032259966', '4032696541', '                                                  ', 3, NULL, NULL, NULL),
+(140, 'Derrick', 'Baltazar', '9111 Church Ave. #3N, NE', 'Calgary', 'AB', 'T3E 5C9', 'Canada', '4032255231', '4037502547', '                                                  ', 6, NULL, NULL, NULL),
+(141, 'Robert', 'Boyd', '96-04 57th Ave #12A, NE', 'Calgary', 'AB', 'T3E 5C5', 'Canada', '4032255647', '4037509512', '                                                  ', 3, NULL, NULL, NULL),
+(142, 'Monica', 'Waldman', '257 Depot Rd., NE', 'Calgary', 'AB', 'T2J 6P3', 'Canada', '4032255629', '4032844566', 'mwaldman@aol.com                                  ', 2, NULL, NULL, NULL),
+(143, 'Gerard', 'Biers', '205 19th St., NE', 'Calgary', 'AB', 'T2J 6B6', 'Canada', '4032251952', '4037506578', '                                                  ', 8, NULL, NULL, NULL),
+(144, 'z', 'z', 'z', 'z', 'Z', 'Z1Z1Z1', 'z', '5555555555', '2222222222', 'z@z.zz', 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -619,14 +571,6 @@ CREATE TABLE `customers_rewards` (
   `RewardId` int(11) NOT NULL,
   `RwdNumber` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `customers_rewards`:
---   `CustomerId`
---       `customers` -> `CustomerId`
---   `RewardId`
---       `rewards` -> `RewardId`
---
 
 --
 -- Dumping data for table `customers_rewards`
@@ -668,10 +612,6 @@ CREATE TABLE `fees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `fees`:
---
-
---
 -- Dumping data for table `fees`
 --
 
@@ -698,12 +638,8 @@ CREATE TABLE `packages` (
   `PkgDesc` varchar(50) DEFAULT NULL,
   `PkgBasePrice` decimal(19,4) NOT NULL,
   `PkgAgencyCommission` decimal(19,4) DEFAULT NULL,
-  `PkgImg` varchar(50) NULL
+  `PkgImg` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `packages`:
---
 
 --
 -- Dumping data for table `packages`
@@ -725,14 +661,6 @@ CREATE TABLE `packages_products_suppliers` (
   `PackageId` int(11) NOT NULL,
   `ProductSupplierId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `packages_products_suppliers`:
---   `ProductSupplierId`
---       `products_suppliers` -> `ProductSupplierId`
---   `PackageId`
---       `packages` -> `PackageId`
---
 
 --
 -- Dumping data for table `packages_products_suppliers`
@@ -761,10 +689,6 @@ CREATE TABLE `products` (
   `ProductId` int(11) NOT NULL,
   `ProdName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `products`:
---
 
 --
 -- Dumping data for table `products`
@@ -796,14 +720,6 @@ CREATE TABLE `products_suppliers` (
   `ProductId` int(11) DEFAULT NULL,
   `SupplierId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `products_suppliers`:
---   `ProductId`
---       `products` -> `ProductId`
---   `SupplierId`
---       `suppliers` -> `SupplierId`
---
 
 --
 -- Dumping data for table `products_suppliers`
@@ -901,10 +817,6 @@ CREATE TABLE `regions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `regions`:
---
-
---
 -- Dumping data for table `regions`
 --
 
@@ -931,10 +843,6 @@ CREATE TABLE `rewards` (
   `RwdName` varchar(50) DEFAULT NULL,
   `RwdDesc` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `rewards`:
---
 
 --
 -- Dumping data for table `rewards`
@@ -970,14 +878,6 @@ CREATE TABLE `suppliercontacts` (
   `AffiliationId` varchar(10) DEFAULT NULL,
   `SupplierId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- RELATIONS FOR TABLE `suppliercontacts`:
---   `SupplierId`
---       `suppliers` -> `SupplierId`
---   `AffiliationId`
---       `affiliations` -> `AffilitationId`
---
 
 --
 -- Dumping data for table `suppliercontacts`
@@ -1339,10 +1239,6 @@ CREATE TABLE `suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `suppliers`:
---
-
---
 -- Dumping data for table `suppliers`
 --
 
@@ -1434,10 +1330,6 @@ CREATE TABLE `triptypes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- RELATIONS FOR TABLE `triptypes`:
---
-
---
 -- Dumping data for table `triptypes`
 --
 
@@ -1513,6 +1405,7 @@ ALTER TABLE `creditcards`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`CustomerId`),
+  ADD UNIQUE KEY `CustUserId` (`CustUserId`),
   ADD KEY `EmployeesCustomers` (`AgentId`);
 
 --
@@ -1604,46 +1497,55 @@ ALTER TABLE `triptypes`
 --
 ALTER TABLE `agencies`
   MODIFY `AgencyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
   MODIFY `AgentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `bookingdetails`
 --
 ALTER TABLE `bookingdetails`
   MODIFY `BookingDetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1304;
+
 --
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
   MODIFY `BookingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1304;
+
 --
 -- AUTO_INCREMENT for table `creditcards`
 --
 ALTER TABLE `creditcards`
   MODIFY `CreditCardId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
+
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
   MODIFY `CustomerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+
 --
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
   MODIFY `PackageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `products_suppliers`
 --
 ALTER TABLE `products_suppliers`
   MODIFY `ProductSupplierId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+
 --
 -- Constraints for dumped tables
 --
@@ -1710,6 +1612,7 @@ ALTER TABLE `products_suppliers`
 ALTER TABLE `suppliercontacts`
   ADD CONSTRAINT `suppliercontacts_ibfk_1` FOREIGN KEY (`SupplierId`) REFERENCES `suppliers` (`SupplierId`),
   ADD CONSTRAINT `suppliercontacts_ibfk_2` FOREIGN KEY (`AffiliationId`) REFERENCES `affiliations` (`AffilitationId`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
