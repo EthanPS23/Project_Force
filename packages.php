@@ -4,17 +4,22 @@
         print("Connection failed: " .mysqli_connect_errno() . "--" .mysqli_connect_errno() . "<br>");
         exit();
     }
+  $pageName = "Packages";
+  $pageTitle = "Travel Packages";
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Travel Experts</title>
+    <title><?php print($pageTitle); ?></title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainStyle.css">
     <script src="stylejs.js"></script>
 </head>
-
 <body>
+  <?php include("templates/header.php"); ?>
     <!--<div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="sidebar">
@@ -37,7 +42,7 @@
                 //$keys=array_keys($row);
                 $values=array_values($row);
 
-                print("<div class='box' onclick=\"window.location='http://google.com'\">");    
+                print("<div class='box' onclick=\"window.location='http://google.com'\">");
                 print("<div class='imgbx'>");
                 print("<div class='flex-container'></div>");
                 print("</div>");
@@ -55,7 +60,7 @@
                 }
 
                 print("<p>$values[4]</p>");
-                print("</div>");               
+                print("</div>");
                 print("</div>");
 
 
@@ -71,9 +76,9 @@
             </div>
             <div class="content">
                 <h2>Joshua Tree</h2>
-                <div class="prices">$4800.00</div>  
+                <div class="prices">$4800.00</div>
                 <div class="dates">2017-12-25 to 2018-01-04</div>
-                
+
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore
                     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -84,7 +89,7 @@
             </div>
         </div>
         <br>-->
-    </div>  
+    </div>
 </body>
 
 </html>
