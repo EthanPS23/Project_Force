@@ -42,7 +42,7 @@
                 //$keys=array_keys($row);
                 $values=array_values($row);
 
-                print("<div class='box' onclick=\"window.location='http://google.com'\">");
+                print("<div class='box' onclick=\"window.location='Register_Page.php'\">");
                 print("<div class='imgbx'>");
                 print("<img src='$values[7]' alt='$values[1]' class='flex-container'>");
                 print("</div>");
