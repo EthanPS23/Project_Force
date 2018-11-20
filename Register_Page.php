@@ -10,47 +10,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="mainStyle.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+                                                                                   
+	<!-- Registration Page JS -->
+	<script src="registration.js"></script>
+	<title>Register Page</title>
+
+<body>
+	<!-- Start Registraion Page -->
+	<div class="jumbotron text-center">
+      <h1>Register with us!</h1>
+    </div>
+
 	<title><?php print($pageTitle); ?></title>
-		<script>
-			function validate(mainform)
-			{
-				var myform = document.getElementById("form1")
-				if (document.forms[0].inputfname.value == "")
-				{
-					alert("First Name must have a value");
-					return false;
-				}
-				if (mainform.elements[1].value == "")
-				{
-					alert("Last Name must have a value");
-					return false;
-				}
-				return confirm("Continue submitting?");
-			}
-		</script>
 
 <body>
 	<?php include("templates/header.php") ?>
 	<div class="container">
 		<form id="form1" method="get" action="bouncer.php">
+			<!-- First and last name -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputfname">First Name</label>
-					<input type="text" name="inputfname" class="form-control" placeholder="First name">
+					<input type="text" id="inputfname" name="inputfname" class="form-control" placeholder="First name">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputlname">Last Name</label>
 					<input type="text" class="form-control" placeholder="Last name">
 				</div>
 			</div>
-
+			<!-- Email -->
 			<div class="form-group">
 				<label for="inputEmail">Email</label>
 				<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
 			</div>
-
+			<!-- Phone numbers -->
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputhphone">Home Phone</label>
+					<input type="tel" name="inputhphone" class="form-control" placeholder="Home Phone">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputbphone">Business Phone</label>
+					<input type="tel" name="inputbphone" class="form-control" placeholder="Business Phone">
+				</div>
+			</div>
+			<!-- User ID and password -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="userid">User ID:</label>
@@ -61,48 +69,47 @@
 					<input type="password" class="form-control" id="inputPassword4" placeholder="Password">
 				</div>
 			</div>
-
+			<!-- Address -->
 			 <div class="form-group">
 				<label for="inputAddress">Address</label>
 				<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
 			 </div>
-
-			 <div class="form-group">
-				<label for="inputAddress2">Address 2</label>
-				<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-			 </div>
-
+			 <!-- City Province and Postal Code line-->
 			 <div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputCity">City</label>
-					<input type="text" class="form-control" id="inputCity">
-			</div>
+					<input type="text" class="form-control" id="inputCity" placeholder="City">
+				</div>
+				<!-- Province drop down list -->
 				<div class="form-group col-md-4">
-				  <label for="inputProvince">Province</label>
+				  <label for="inputProvince">Province/Territory</label>
 				  <select id="inputProvince" class="form-control">
-					<option value="">Select a province</option>
-					<option value="bc">Bristish Columbia</option>
+					<option value="">Select a province/territory</option>
 					<option value="ab">Alberta</option>
-					<option value="sk">Saskatchewan</option>
+					<option value="bc">British Columbia</option>
 					<option value="mb">Manitoba</option>
-					<option value="on">Ontario</option>
-					<option value="qc">Quebec</option>
-					<option value="ns">Nova Scotia</option>
 					<option value="nb">New Brunswick</option>
 					<option value="nf">Newfoundland and Labrador</option>
-					<option value="pe">Prince Edward Island</option>
-					<option value="yk">Yukon</option>
-					<option value="nu">Nunavut</option>
 					<option value="nw">Northwest Territories</option>
+					<option value="ns">Nova Scotia</option>
+					<option value="nu">Nunavut</option>
+					<option value="on">Ontario</option>
+					<option value="pe">Prince Edward Island</option>
+					<option value="qc">Quebec</option>
+					<option value="sk">Saskatchewan</option>
+					<option value="yk">Yukon</option>
 				  </select>
 				</div>
+				<!-- Postal Code -->
 				<div class="form-group col-md-2">
-					<label for="inputPostal">Postal</label>
-					<input type="text" class="form-control" id="inputPostal">
+					<label for="inputPostal">Postal Code</label>
+					<input type="text" class="form-control" id="inputPostal" placeholder="Postal Code">
 				</div>
+			<!-- Submit and reset buttons -->
+			</div class="form-row">
+					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" />
+					<input type="reset" class="btn-secondary btn-sm" onclick="return confirm('Do you really want to reset?');" />
 			</div>
-			<input type="submit" onclick="return validate(this.form);" />
-			<input type="reset" onclick="return confirm('Do you really want to reset?');" />
 		</form>
 	</div>
 	<?php include("templates/footer.php"); ?>
