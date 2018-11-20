@@ -48,8 +48,8 @@
           <picture>
            <source srcset="CMS_Creative_164657191_Kingfisher.jpg" media="(min-width: 1400px)">
            <source srcset="https://dummyimage.com/1140x550/#007aeb/4196e5" media="(min-width: 769px)">
-           <source srcset="https://dummyimage.com/800x385/007aeb/4196e5" media="(min-width: 577px)">
-           <img srcset="https://dummyimage.com/600x289/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
+           <source srcset="https://dummyimage.com/800x550/007aeb/4196e5" media="(min-width: 577px)">
+           <img srcset="https://dummyimage.com/600x550/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
           </picture>
           <div class="carousel-caption d-none d-md-block">
             <h5>First Slide</h5>
@@ -60,7 +60,7 @@
             <a href="https://bootstrapcreative.com/">
               <picture>
                 <source srcset="https://dummyimage.com/1600x550/#007aeb/4196e5" media="(min-width: 769px)">
-                <img src="https://dummyimage.com/1000x550/444/" alt="responsive image" class="d-block img-fluid">
+                <img src="https://dummyimage.com/800x550/444/" alt="responsive image" class="d-block img-fluid">
               </picture>
               <div class="carousel-caption justify-content-center align-items-center">
                   <div>
