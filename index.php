@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $pageName = "Home";
   $pageTitle = "Main Page";
 ?>
