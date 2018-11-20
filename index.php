@@ -36,6 +36,7 @@
         <h1>Welcome to Travel Experts</h1>
       </div>
     </div>
+
     <?php include("templates/header.php"); ?>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="7000">
@@ -47,8 +48,8 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <picture>
-           <source srcset="CMS_Creative_164657191_Kingfisher.jpg" media="(min-width: 1400px)">
-           <source srcset="https://dummyimage.com/1140x550/#007aeb/4196e5" media="(min-width: 769px)">
+           <source srcset="Images/Caribbean.jpg" media="(min-width: 1400px)">
+           <source srcset="Images/Caribbean.jpg" media="(min-width: 769px)">
            <source srcset="https://dummyimage.com/800x550/007aeb/4196e5" media="(min-width: 577px)">
            <img srcset="https://dummyimage.com/600x550/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
           </picture>
