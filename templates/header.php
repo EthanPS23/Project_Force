@@ -1,4 +1,5 @@
 <?php
+//list of all pages that are on nav bar
     $pageArray = array("Home" => "index.php", "Packages" => "packages.php" , "Register" => "Register_Page.php", "Contact" => "Contact_Us.php");
 ?>
 <script src="mainJava.js"></script>
@@ -27,7 +28,18 @@
       ?>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)"><a class="nav-link" href="#"></span> Sign In</a></li>
+      <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)">
+        <a class="nav-link" href="accountCheck.php"></span>
+          <?php
+            if(!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
+              print("Sign In");
+            }
+            else{
+              print("Sign Out");
+            }
+          ?>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
