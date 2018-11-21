@@ -34,7 +34,13 @@
             if(!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
               print("Sign In");
             }
+            elseif(isset($_SESSION["logged-in"]) && (time() - $_SESSION["last_active"]) > 600){
+              unset($_SESSION["logged-in"]);
+              unset($_SESSION["last_active"]);
+              print("Sign In");
+            }
             else{
+              $_SESSION["last_active"] = time();
               print("Sign Out");
             }
           ?>

@@ -29,7 +29,7 @@
        </picture>
        ");
       print("<div class='carousel-caption d-none d-md-block'>
-        <h4>$values[0]</h4>
+        <h3>$values[0]</h3>
         <p>$values[1]</p>
       </div>
       </div>");
