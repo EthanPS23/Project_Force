@@ -1,5 +1,4 @@
 <?php
-    session_cache_expire(30);
     session_start();
   if(!isset($_REQUEST["UserId"])){
     $_SESSION["message"] = "User ID and Password are Required";
@@ -38,6 +37,7 @@
 
   if(($password = mysqli_fetch_array($result)) && (password_verify($_REQUEST["Password"], $password[0]))){
     $_SESSION["logged-in"] = true;
+    $_SESSION["last_active"] = time();
     $returnPage = $_SESSION["returnPage"];
     unset($_SESSION["returnPage"]);
     mysqli_close($dbh);
