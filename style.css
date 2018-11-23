@@ -1,3 +1,4 @@
+/* settings for the flex */
 .flex-container{
   /*background-color: #6699ff;*/
   margin: 0px;
@@ -7,6 +8,7 @@
   display: flex;
   flex: 0 0 100px;
 }
+/* style settings for the overall package card */
 .box{
   position: relative;
   margin:15px;
@@ -19,7 +21,6 @@
   /*width: 55%;   Adding the max-width and max-height here 
   allows the box/card to be more responsive to the screen size versus
   width and height set as percentages
-
   height: 25%;*/
   padding: 20px;
   box-sizing:border-box;
@@ -52,65 +53,6 @@
   max-width: 100%;
 }
 
-/* side nav information used from w3schools.com/howto/howto_js_sidenav.asp */
-/*.Menu{
-  position: fixed;
-  top: 0;
-  left: 0;
-  color: aquamarine;
-  z-index: 1;
-}
-.sidenav{
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  background-color: darkgray;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.5s;
-
-}
-
-.sidenav a{
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25 px;
-  color: black;
-  display: black;
-  transition: 300ms;
-
-}
-
-.sidenav a:hover{
-  color: aquamarine;
-
-}
-
-.sidenav .closebtn{
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-body{
-  margin: 0;
-}
-#main {
-  transition: margin-left 0.5s;
-  padding: 20px;
-}
-
-@media screen and (max-height: 450 px){
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}*/
-
- /* The side navigation menu */
 .sidebar {
   margin: 0;
   padding: 0;
