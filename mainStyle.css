@@ -46,3 +46,12 @@ body{
 .warningText{
   color: red;
 }
+
+.btn-primary {
+	border-style: unset;
+}
+
+.btn-info {
+	border-style: unset;
+}
+
