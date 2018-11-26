@@ -21,10 +21,22 @@
   </head>
   <body>
     <?php include("templates/header.php");
-      #querry number of agencies
+      #query number of agencies
       $sqlAgc = "SELECT `AgencyId` FROM `agencies`";
       $resultAgc = mysqli_query($dbh, $sqlAgc);
       $AgcLength=mysqli_num_rows($resultAgc);
+
+      #query number of agents
+      $sqlAgt = "SELECT `AgtPosition` FROM `agents`";
+      $resultAgt = mysqli_query($dbh,$sqlAgt);
+      $data=array();
+      while($row=mysqli_fetch_assoc($resultAgt))
+      {
+        $data[] = $row;
+      }
+      $positionUnique = array_values(array_unique(array_column($data, 'AgtPosition')));
+      $positiontest = array_values($positionUnique);
+      $positionUniqueNS = str_replace(" ", "", $positionUnique);
     ?>
 
     <!--Section to import and display all agencies-->
@@ -62,13 +74,13 @@
                   <ul class='list-group list-group-flush'>
                     <li class='list-group-item'><i class='fa fa-phone'></i> " .$row['AgncyPhone'] . "</li>
                     <li class='list-group-item'><i class='fa fa-fax'></i> ". $row['AgncyFax']."</li>
-                    <li class='list-group-item'><p>Contact a travel agent directly!</p>
-                      <a href='#collapse0" . $i . "'class='btn btn-primary' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapse0" . $i . "'>Junior Agent</a>
-                      <a href='#collapse1" .$i . "'class='btn btn-primary' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapse1" . $i . "'>Intermediate Agent</a>
-                      <a href='#collapse2" .$i . "'class='btn btn-primary' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapse2" . $i . "'>Senior Agent</a>
-                    </li>
-                  </ul>
-                 </div>");
+                    <li class='list-group-item'><p>Contact a travel agent directly!</p>");
+          for ($m=0; $m<count($positionUnique);$m++)
+          {
+            print("<a href='#collapse" . $positionUniqueNS[$m] . $i . "'class='btn btn-primary' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapse".  $positionUniqueNS[$m] . $i . "'>" .  $positionUnique[$m] . "</br></a>");
+          }
+          print("</li></ul></div>");
+
           $j++;
           if ($j%4==0 || $j==$AgcLength)
           {
@@ -82,12 +94,10 @@
       #Section to import and display agents according to their positions
       for ($i=1; $i<=$AgcLength; $i++)
       {
-        $positions = array("Junior Agent", "Intermediate Agent", "Senior Agent");
-
-        for ($m=0; $m<count($positions); $m++)
+        for ($m=0; $m<count($positionUniqueNS); $m++)
         {
           #Junior agents in a given agency
-          $sqlJr = "SELECT `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail` FROM `agents` WHERE `AgencyId`=$i AND `AgtPosition`='$positions[$m]'";
+          $sqlJr = "SELECT `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail` FROM `agents` WHERE `AgencyId`=$i AND `AgtPosition`='$positionUnique[$m]'";
           $resultJr=mysqli_query($dbh, $sqlJr);
           $JrLgth=mysqli_num_rows($resultJr);
 
@@ -100,13 +110,13 @@
           {
             if ($k==0)
             {
-              print("<div class='card-deck collapse' id='collapse" . $m . $i . "'>");
+              print("<div class='card-deck collapse' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
             }
             print("<div class='card collapse'>
                     <img class='card-img-top' src='Images/obama.jpg' alt='Card image cap'>
                     <div class='card-body'>
                       <h5 class='card-title'>" . $rowJr['AgtFirstName'] . " " . $rowJr['AgtMiddleInitial'] . " " . $rowJr['AgtLastName'] . "</h5>
-                      <p>" . $positions[$m] . "</p>
+                      <p>" . $positionUnique[$m] . "</p>
                     </div>
                     <ul class='list-group list-group-flush'>
                       <li class='list-group-item'><i class='fa fa-phone'></i> " . $rowJr['AgtBusPhone'] . "</li>
@@ -117,7 +127,7 @@
             if($k%4==0 && $k!=$JrLgth)
             {
               print("</div>");
-              print("<div class='card-deck collapse' id='collapse" . $m . $i . "'>");
+              print("<div class='card-deck collapse' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
             }
             if($k==$JrLgth)
             {
