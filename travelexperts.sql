@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2018 at 08:21 PM
+-- Generation Time: Nov 26, 2018 at 04:46 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `travelexperts`
 --
+CREATE DATABASE IF NOT EXISTS `travelexperts` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `travelexperts`;
 
 -- --------------------------------------------------------
 
@@ -95,15 +97,18 @@ CREATE TABLE `agents` (
 --
 
 INSERT INTO `agents` (`AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail`, `AgtPosition`, `AgencyId`, `AgtPassword`) VALUES
-(1, 'Janet', NULL, 'Delton', '(403) 210-7801', 'janet.delton@travelexperts.com', 'Senior Agent', 1, NULL),
-(2, 'Judy', NULL, 'Lisle', '(403) 210-7802', 'judy.lisle@travelexperts.com', 'Intermediate Agent', 1, NULL),
-(3, 'Dennis', 'C.', 'Reynolds', '(403) 210-7843', 'dennis.reynolds@travelexperts.com', 'Junior Agent', 1, NULL),
+(1, 'Janet', NULL, 'Delton', '(403) 210-7801', 'janet.delton@travelexperts.com', 'Senior Agent', 1, '$2y$10$69fS1.iVuTIKkojO5006Cu9AjcG0tsPlGqoIl8HKEN.3dbk6/sSci'),
+(2, 'Judy', NULL, 'Lisle', '(403) 210-7802', 'judy.lisle@travelexperts.com', 'Intermediate Agent', 1, '$2y$10$/r3uWDsVELmotc.buWif9uhYrjNEcY5PptRvaOCo1Ix8faPRXQorO'),
+(3, 'Dennis', 'C.', 'Reynolds', '(403) 210-7843', 'dennis.reynolds@travelexperts.com', 'Junior Agent', 1, '$2y$10$xDrLSrTIS65KvOlH3XZa8eAi3kwueMh9njQlHPF0kNA0H/6ohftfK'),
 (4, 'John', NULL, 'Coville', '(403) 210-7823', 'john.coville@travelexperts.com', 'Intermediate Agent', 1, NULL),
 (5, 'Fred', 'J', 'Smith', '(403) 210-5555', 'fred@travelexperts.com', 'Junior Agent', 2, NULL),
 (6, 'Bruce', 'J.', 'Dixon', '(403) 210-7867', 'bruce.dixon@travelexperts.com', 'Intermediate Agent', 2, NULL),
 (7, 'Beverly', 'S.', 'Jones', '(403) 210-7812', 'beverly.jones@travelexperts.com', 'Intermediate Agent', 1, NULL),
 (8, 'Jane', NULL, 'Merrill', '(403) 210-7868', 'jane.merrill@travelexperts.com', 'Senior Agent', 2, NULL),
-(9, 'Brian', 'S.', 'Peterson', '(403) 210-7833', 'brian.peterson@travelexperts.com', 'Junior Agent', 2, NULL);
+(9, 'Brian', 'S.', 'Peterson', '(403) 210-7833', 'brian.peterson@travelexperts.com', 'Junior Agent', 2, NULL),
+(16, '', '', '', '', '', '', 1, ''),
+(17, 'Joe', 'Shmo', 'Shma', '403-403-4034', 'emails@mail.com', 'Junior Agent', 1, '$2y$10$xDrLSrTIS65KvOlH3XZa8eAi3kwueMh9njQlHPF0kNA0H/6ohftfK'),
+(18, 'AB', 'a', 'BAasasd', '123-123-1234', 'e@mail.com', 'Intermediate Agent', 1, '$2y$10$/r3uWDsVELmotc.buWif9uhYrjNEcY5PptRvaOCo1Ix8faPRXQorO');
 
 -- --------------------------------------------------------
 
@@ -1502,7 +1507,7 @@ ALTER TABLE `agencies`
 -- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
-  MODIFY `AgentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `AgentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `bookingdetails`
