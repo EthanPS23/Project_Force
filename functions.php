@@ -32,4 +32,38 @@
     mysqli_close($dbh);
     return true;
   }
+  
+  function insertCustomer($cust){
+    $sql = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, `CustEmail`,
+    `CustHomePhone`, `CustBusPhone`, `CustUserId`, `CustPassword`, 'CustAddress', 'CustCity', 'CustProv', 'CustPostal') VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    $dbh = dbconnect();
+    if (!$dbh){
+      print("Connection erro:" . mysqli_connect_errno() . "----" . mysqli_connect_error() . "<br />");
+      exit();
+    }
+
+    $stmt = mysqli_prepare($dbh, $sql);
+    mysqli_stmt_bind_param($stmt, "sssssssssss",
+	$cust["CustFirstName"],
+    $cust["CustLastName"],
+	$cust["CustEmail"],
+	$cust["CustHomePhone"],
+    $cust["CustBusPhone"],
+	$cust["CustUserId"],
+	$cust["CustPassword"],
+	$cust["CustAddress"],
+	$cust["CustCity"],
+	$cust["CustProv"],
+	$cust["CustPostal"],
+	);
+
+    $result = mysqli_stmt_execute($stmt);
+    if (!$result){
+      print(mysqli_stmt_error());
+      mysqli_close($dbh);
+      return false;
+    }
+    mysqli_close($dbh);
+    return true;
+  }
 ?>
