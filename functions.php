@@ -33,9 +33,9 @@
     return true;
   }
   
-  function insertCustomer($cust){
-    $sql = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, `CustEmail`,
-    `CustHomePhone`, `CustBusPhone`, `CustUserId`, `CustPassword`, 'CustAddress', 'CustCity', 'CustProv', 'CustPostal') VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+  
+  function insertcustomer($cust){
+    $sql = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, `CustAddress`, `CustCity`, `CustProv`, `CustPostal`, `CustHomePhone`, `CustBusPhone`, `CustEmail`, `CustUserId`, `CustPassword`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $dbh = dbconnect();
     if (!$dbh){
       print("Connection erro:" . mysqli_connect_errno() . "----" . mysqli_connect_error() . "<br />");
@@ -43,27 +43,16 @@
     }
 
     $stmt = mysqli_prepare($dbh, $sql);
-    mysqli_stmt_bind_param($stmt, "sssssssssss",
-	$cust["CustFirstName"],
-    $cust["CustLastName"],
-	$cust["CustEmail"],
-	$cust["CustHomePhone"],
-    $cust["CustBusPhone"],
-	$cust["CustUserId"],
-	$cust["CustPassword"],
-	$cust["CustAddress"],
-	$cust["CustCity"],
-	$cust["CustProv"],
-	$cust["CustPostal"],
-	);
+    mysqli_stmt_bind_param($stmt, "sssssssssss", $cust["CustFirstName"], $cust["CustLastName"], $cust["CustAddress"], $cust["CustCity"], $cust["CustProv"], $cust["CustPostal"], $cust["CustHomePhone"], $cust["CustBusPhone"], $cust["CustEmail"], $cust["CustUserId"], $cust["CustPassword"]);
 
     $result = mysqli_stmt_execute($stmt);
     if (!$result){
-      print(mysqli_stmt_error());
+      print(mysqli_stmt_error($stmt));
       mysqli_close($dbh);
       return false;
     }
     mysqli_close($dbh);
     return true;
   }
+  
 ?>

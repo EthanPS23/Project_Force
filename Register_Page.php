@@ -32,7 +32,7 @@
 	<div class="container">
 		<h4>Enter your information below</h4>
 		<p class="fieldhelp" id="f1"></p>
-		<form id="form1" method="get" action="bouncer.php">
+		<form id="form1" method="get" action="customerinsert.php">
 			<!-- First and last name -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
@@ -41,7 +41,7 @@
 				</div>
 				<div class="form-group col-md-6">
 					<label for="CustLastName" style="font-weight: bold">Last Name</label>
-					<input type="text" id="CustLastName" name "CustLastName" class="form-control" placeholder="Last name" onfocus="myFocus(this)" onblur="myBlur(this)">
+					<input type="text" id="CustLastName" name="CustLastName" class="form-control" placeholder="Last name" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
 			</div>
 			<!-- Email -->
@@ -110,7 +110,7 @@
 				<!-- Submit and reset buttons onclick confirmations and validation fuunction calls-->
 				<div class="form-row">
 					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" />
-					<input type="reset" class="btn-secondary btn-sm" onclick="return confirm('Do you really want to reset?');" />
+					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" />
 				</div>
 			</div>
 		</form>
