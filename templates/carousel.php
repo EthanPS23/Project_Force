@@ -1,5 +1,5 @@
 <?php
-  $dbh = mysqli_connect("localhost","yosk","password","travelexperts");
+  $dbh = mysqli_connect("localhost","harv","password","travelexperts");
   if(!$dbh){
       print("Connection failed: ".mysqli_connect_errno()."--".mysqli_connect_errno()."<br>");
       exit();

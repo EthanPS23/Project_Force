@@ -61,7 +61,7 @@
           {
             print ("<div class='card-deck'>");
           }
-          print("<div class='card'>
+          print("<div class='card cardbkg' style='width: 100px'>
                   <img class='card-img-top' src='Images/logo.jpg' alt='Card image cap'>
                   <div class='card-body'>
                     <h5 class='card-title'>Agency Number " . $row['AgencyId'] . "</h5>
@@ -112,13 +112,13 @@
             {
               print("<div class='card-deck collapse' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
             }
-            print("<div class='card collapse'>
+            print("<div class='card collapse cardbkg'>
                     <img class='card-img-top' src='Images/obama.jpg' alt='Card image cap'>
                     <div class='card-body'>
                       <h5 class='card-title'>" . $rowJr['AgtFirstName'] . " " . $rowJr['AgtMiddleInitial'] . " " . $rowJr['AgtLastName'] . "</h5>
                       <p>" . $positionUnique[$m] . "</p>
                     </div>
-                    <ul class='list-group list-group-flush'>
+                    <ul class='list-group list-group-flush listbkg'>
                       <li class='list-group-item'><i class='fa fa-phone'></i> " . $rowJr['AgtBusPhone'] . "</li>
                       <li class='list-group-item'><i class='fa fa-address-card'></i> " . $rowJr['AgtEmail'] ."</li>
                     </ul>

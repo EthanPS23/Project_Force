@@ -42,7 +42,15 @@ body{
   padding:0;
   height:100%;
 }
-
+.cardbkg{
+  /*background:rgb(211, 211, 211);*/
+  border-radius: 0px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  /*width:600px;*/
+}
+.listbkg{
+  background:rgb(211, 211, 211);
+}
 .warningText{
   color: red;
 }
