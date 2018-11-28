@@ -2,11 +2,7 @@
 	include_once("Customer.php");
 	include_once("functions.php");
 	session_start();
-	//receive form data from register page
-	//$customer = ($_REQUEST);
-	//$customer = array();
-	
-	// put $_REQUEST array into Agent class in the appropriate spots
+
 	$customerObj = new Customer($_REQUEST);
 		$_SESSION["custObj"] = $customerObj;
 		
@@ -23,7 +19,7 @@
 		$_REQUEST['CustPassword']);
 		*/
 
-//insert $agents array to the insertagents function
+//insert $agents array to the insertcustomer function
 	if (isset($_REQUEST["CustFirstName"]))
 	{
 		//validate the form data
