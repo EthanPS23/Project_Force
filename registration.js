@@ -91,3 +91,59 @@ function validate(mainform)
 }
 
 // Registraion form Validation End //
+
+
+function myFocus(x)
+{
+	x.style.background = "beige";
+	
+	//the switch cycles each form field name for a match
+	var help = x.id;
+	switch (help)
+	{
+		case "CustFirstName":
+			document.getElementById("f1").innerHTML="Required field: insert first name here"
+			break;
+		case "CustLastName":
+			document.getElementById("f1").innerHTML="Required field: insert last name here"
+			break;
+		case "CustEmail":
+			document.getElementById("f1").innerHTML="Required field: insert Email here"
+			break;
+		case "CustHomePhone":
+			document.getElementById("f1").innerHTML="Required field: insert phone number here"
+			break;
+		case "CustBusPhone":
+			document.getElementById("f1").innerHTML="Not required: provide business phone if necessary here"
+			document.getElementById("f1").style="color: purple"
+			break;
+		case "CustUserId":
+			document.getElementById("f1").innerHTML="Required field: insert a userID here"
+			break;
+		case "CustPassword":
+			document.getElementById("f1").innerHTML="Required field: insert password here"
+			break;
+		case "CustAddress":
+			document.getElementById("f1").innerHTML="Required field: insert an address here"
+			break;
+		case "CustCity":
+			document.getElementById("f1").innerHTML="Required field: insert a city here"
+			break;
+		case "CustProv":
+			document.getElementById("f1").innerHTML="Required field: select a province here"
+			break;
+		case "CustPostal":
+			document.getElementById("f1").innerHTML="Required field: insert a postal code here"
+			break;
+	}
+	document.getElementById("f1").style.display='block';
+}
+
+//function for onblue to hide any help text in the form
+function myBlur(x)
+{
+	x.style.background = "white";
+	document.getElementById("f1").style="color: red";
+	document.getElementById("f1").style.display='none';
+	document.getElementById("f1").innerHTML="";
+}

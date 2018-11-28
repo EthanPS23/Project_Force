@@ -1,6 +1,8 @@
 <?php
   $pageName = "Register";
   $pageTitle = "Register With Us";
+  session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,12 +16,13 @@
 	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-                                                                                   
+
 	<!-- Registration Page JS -->
 	<script src="registration.js"></script>
 	<title>Register Page</title>
 
 <body>
+	<div id="wrap">
 	<!-- Start Registraion Page -->
 	<div class="jumbotron text-center">
       <h1>Register with us!</h1>
@@ -27,63 +30,64 @@
 
 	<title><?php print($pageTitle); ?></title>
 
-<body>
 	<?php include("templates/header.php") ?>
 	<div class="container">
-		<form id="form1" method="get" action="bouncer.php">
+		<h4>Enter your information below</h4>
+		<p class="fieldhelp" id="f1"></p>
+		<form id="form1" method="get" action="customerinsert.php">
 			<!-- First and last name -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputfname">First Name</label>
-					<input type="text" id="inputfname" name="inputfname" class="form-control" placeholder="First name">
+					<label for="CustFirstName" style="font-weight: bold">First Name</label>
+					<input type="text" id="CustFirstName" name="CustFirstName" class="form-control" placeholder="First name" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="inputlname">Last Name</label>
-					<input type="text" class="form-control" placeholder="Last name">
+					<label for="CustLastName" style="font-weight: bold">Last Name</label>
+					<input type="text" id="CustLastName" name="CustLastName" class="form-control" placeholder="Last name" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
 			</div>
 			<!-- Email -->
 			<div class="form-group">
-				<label for="inputEmail">Email</label>
-				<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+				<label for="CustEmail" style="font-weight: bold">Email</label>
+				<input type="email" class="form-control" name="CustEmail" id="CustEmail" placeholder="Email" onfocus="myFocus(this)" onblur="myBlur(this)">
 			</div>
 			<!-- Phone numbers -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputhphone">Home Phone</label>
-					<input type="tel" name="inputhphone" class="form-control" placeholder="Home Phone">
+					<label for="CustHomePhone" style="font-weight: bold">Home Phone</label>
+					<input type="tel" name="CustHomePhone" id="CustHomePhone" class="form-control" placeholder="Home Phone" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="inputbphone">Business Phone</label>
-					<input type="tel" name="inputbphone" class="form-control" placeholder="Business Phone">
+					<label for="CustBusPhone" style="font-weight: bold">Business Phone</label>
+					<input type="tel" name="CustBusPhone" id="CustBusPhone" class="form-control" placeholder="Business Phone" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
 			</div>
 			<!-- User ID and password -->
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="CustUserId" style="font-weight: bold">User ID:</label>
+						<input type="text" class="form-control" name="CustUserId" id="CustUserId" placeholder="User Name" onfocus="myFocus(this)" onblur="myBlur(this)">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="CustPassword" style="font-weight: bold">Password</label>
+						<input type="password" class="form-control" name="CustPassword" id="CustPassword" placeholder="Password" onfocus="myFocus(this)" onblur="myBlur(this)">
+					</div>
+				</div>
+			<!-- Address -->
+			<div class="form-group">
+				<label for="CustAddress" style="font-weight: bold">Address</label>
+				<input type="text" class="form-control"  name="CustAddress" id="CustAddress" placeholder="1234 Main St" onfocus="myFocus(this)" onblur="myBlur(this)">
+			 </div>
+			<!-- City Province and Postal Code line-->
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="userid">User ID:</label>
-					<input type="text" class="form-control" id="userid" placeholder="User Name">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="inputPassword">Password</label>
-					<input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-				</div>
-			</div>
-			<!-- Address -->
-			 <div class="form-group">
-				<label for="inputAddress">Address</label>
-				<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-			 </div>
-			 <!-- City Province and Postal Code line-->
-			 <div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="inputCity">City</label>
-					<input type="text" class="form-control" id="inputCity" placeholder="City">
+					<label for="CustCity" style="font-weight: bold">City</label>
+					<input type="text" class="form-control" name="CustCity" id="CustCity" placeholder="City" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
 				<!-- Province drop down list -->
 				<div class="form-group col-md-4">
-				  <label for="inputProvince">Province/Territory</label>
-				  <select id="inputProvince" class="form-control">
+				  <label for="CustProv" style="font-weight: bold">Province/Territory</label>
+				  <select id="CustProv" name="CustProv" class="form-control" onfocus="myFocus(this)" onblur="myBlur(this)">
 					<option value="">Select a province/territory</option>
 					<option value="ab">Alberta</option>
 					<option value="bc">British Columbia</option>
@@ -102,15 +106,19 @@
 				</div>
 				<!-- Postal Code -->
 				<div class="form-group col-md-2">
-					<label for="inputPostal">Postal Code</label>
-					<input type="text" class="form-control" id="inputPostal" placeholder="Postal Code">
+					<label for="CustPostal" style="font-weight: bold">Postal Code</label>
+					<input type="text" class="form-control" name="CustPostal" id="CustPostal" placeholder="Postal Code" onfocus="myFocus(this)" onblur="myBlur(this)">
 				</div>
-			<!-- Submit and reset buttons -->
-			</div class="form-row">
-					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" />
-					<input type="reset" class="btn-secondary btn-sm" onclick="return confirm('Do you really want to reset?');" />
+				<!-- Submit and reset buttons onclick confirmations and validation fuunction calls-->
+				<div class="form-row">
+					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" value="Register"/>
+					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" />
+				</div>
 			</div>
 		</form>
 	</div>
+	</div>
 	<?php include("templates/footer.php"); ?>
+
 </body>
+</html>

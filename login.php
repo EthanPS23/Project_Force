@@ -20,6 +20,7 @@
   </head>
   <body>
     <!-- Start registration page -->
+    <div id="wrap">
     <?php include("templates/header.php"); ?>
     <div class="container">
       <p>Enter User ID and Password</p>
@@ -38,8 +39,13 @@
             </div>
           </div>
           <!-- Submit and reset buttons-->
+          <span>
+            Don't have an account?
+            <a href="Register_Page.php">Register here.</a>
+          </span><br>
+
           <input type="submit" class="btn-primary btn-lg" value="Log-In" />
-					<input type="reset" class="btn-secondary btn-sm" onclick="return confirm('Do you really want to reset?');" />
+					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" />
         </form>
     </div>
 
@@ -52,6 +58,7 @@
         }
       ?>
     </p>
+    </div>
     <?php include("templates/footer.php"); ?>
   </body>
 </html>
