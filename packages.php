@@ -38,7 +38,7 @@
             while($row=mysqli_fetch_assoc($result)){
 
                 $values=array_values($row);
-                print("<form target=\"_self\" method=\"get\" action=\"login.php\">");
+                print("<form target=\"_self\" method=\"get\" action=\"packageregtest.php\">");
                 // creates a card and when clicked would go to the package, purchase page
                 print("<div class='box' onclick=\"window.location='Register_Page.php'\">");
                 
