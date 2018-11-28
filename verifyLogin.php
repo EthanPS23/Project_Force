@@ -1,5 +1,6 @@
 <?php
     session_start();
+	include_once("Customer.php");
   if(!isset($_REQUEST["UserId"])){
     $_SESSION["message"] = "User ID and Password are Required";
     header("Location: login.php");
@@ -9,7 +10,7 @@
   if(mysqli_connect_errno()){
     die("Error: ".mysqli_connect_error()."!!!");
   }
-  $sql = "select CustPassword from customers where CustUserId=?";
+  $sql = "select CustomerId, CustUserId, CustPassword from customers where CustUserId=?";
   //$sql2 = "select AgtPassword from agents where AgentId=?"; dont really need for scope of project
   $stmt = mysqli_prepare($dbh, $sql);
   if(!mysqli_stmt_bind_param($stmt, "s", $_REQUEST["UserId"])){
@@ -35,8 +36,10 @@
 
   //password_verify($_REQUEST["CustPassword"], $password[0] == $_REQUEST["CustPassword"]);
 
-  if(($password = mysqli_fetch_array($result)) && (password_verify($_REQUEST["Password"], $password[0]))){
-    $_SESSION["logged-in"] = true;
+  if(($resultArray = mysqli_fetch_array($result)) && (password_verify($_REQUEST["Password"], $resultArray[2]))){
+    $var = new Customer($resultArray);
+	$_SESSION["customer"] = $var;
+	$_SESSION["logged-in"] = true;
     $_SESSION["last_active"] = time();
     $returnPage = $_SESSION["returnPage"];
     unset($_SESSION["returnPage"]);

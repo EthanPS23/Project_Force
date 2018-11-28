@@ -31,7 +31,7 @@ $_REQUEST["CustPassword"] = password_hash($_REQUEST["CustPassword"], PASSWORD_DE
 		$insertcust = insertcustomer($_REQUEST);
 		if ($insertcust && isset($_SESSION["package"]))
 		{
-			$_SESSION["custpackage"] = $customerObj;
+			$_SESSION["customer"] = $customerObj;
 			$_SESSION["logged-in"] = true;
 			header("Location: packagereg.php");
 		}
