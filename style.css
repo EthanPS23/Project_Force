@@ -18,7 +18,7 @@
   max-width: 600px;
   max-height:200px;
   height: 25%;
-  /*width: 55%;   Adding the max-width and max-height here 
+  /*width: 55%;   Adding the max-width and max-height here
   allows the box/card to be more responsive to the screen size versus
   width and height set as percentages
   height: 25%;*/
@@ -26,7 +26,7 @@
   box-sizing:border-box;
   background:rgb(255, 255, 255);
   border-radius: 0px;
-  
+
   border-color: rgb(43, 255, 0);
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   display: flex;
@@ -105,7 +105,7 @@ div.main {
   }
   .sidebar a {float: left;}
   div.main {
-      margin-top: 0; 
+      margin-top: 0;
       margin-left: 0;
 
       padding: 40px; /*change this for where the main starts below the tool bar*/
@@ -121,4 +121,4 @@ div.main {
     float: none;
     left: 0;
   }
-} 
+}
