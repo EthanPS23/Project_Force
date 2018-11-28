@@ -27,7 +27,7 @@ function validate(myform)
 	var reg3 = /^([A-Za-z]\d[A-Za-z][-]?\d[A-Za-z]\d)/;
 	if (!reg3.test(myform.AgncyPostal.value))
 	{
-		alert("Invalid postal code");
+		alert("Invalid postal code. Format: G1G8T4");
 		return false;
 	}
 
