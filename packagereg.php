@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?PHP
+	session_start();
+	if (!isset($_SESSION["logged-in"]))
+	{
+		header("Location: index.php");
+	}
+	elseif (!isset($_SESSION["package"]) || !isset($_SESSION["customer"]))
+	{
+		header("Location: packages.php");
+	}
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -24,7 +35,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="numTravellers">Number of Travellers</label>
-					<input type="number" id="numTravellers" name="numTravellers" class="form-control" placeholder="1" min="1">
+					<input type="number" id="numTravellers" name="numTravellers" class="form-control" placeholder="1" min="1" required>
 				</div>				
 			</div>			
 			<!-- Submit and reset buttons -->
