@@ -20,6 +20,7 @@
     <title>Main Page</title>
   </head>
   <body>
+    <div id="wrap">
     <?php include("templates/header.php");
       #query number of agencies
       $sqlAgc = "SELECT `AgencyId` FROM `agencies`";
@@ -137,6 +138,7 @@
         }
       }
     ?>
+    </div>
     <?php include 'templates/footer.php'; ?>
   </body>
 </html>

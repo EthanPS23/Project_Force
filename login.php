@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mainStyle.css">
-    <link rel="stylesheet" href="login.css">
+    <!--<link rel="stylesheet" href="login.css">-->
     
     <!-- Login page JS -->
     <script src="stylejs.js"></script>
@@ -24,6 +24,7 @@
   </head>
   <body>
     <!-- Start registration page -->
+    <div id="wrap">
     <?php include("templates/header.php"); ?>
     <div class="container">
       <p>Enter User ID and Password</p>
@@ -61,6 +62,7 @@
         }
       ?>
     </p>
+    </div>
     <?php include("templates/footer.php"); ?>
   </body>
 </html>
