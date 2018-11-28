@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mainStyle.css">
-    <link rel="stylesheet" href="login.css">
+    <!--<link rel="stylesheet" href="login.css">-->
     
     <!-- Login page JS -->
     <script src="stylejs.js"></script>
@@ -23,6 +23,7 @@
   </head>
   <body>
     <!-- Start registration page -->
+    <div id="wrap">
     <?php include("templates/header.php"); ?>
     <div class="container">
       <p>Enter User ID and Password</p>
@@ -60,6 +61,7 @@
         }
       ?>
     </p>
+    </div>
     <?php include("templates/footer.php"); ?>
   </body>
 </html>

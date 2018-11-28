@@ -30,14 +30,16 @@
     </style>
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1>Welcome to Travel Experts</h1>
+    <div id="wrap">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1>Welcome to Travel Experts</h1>
+        </div>
       </div>
-    </div>
-    <?php include("templates/header.php"); ?>
+      <?php include("templates/header.php"); ?>
 
-    <?php include "templates/carousel.php"; ?>
+      <?php include "templates/carousel.php"; ?>
+
 
     <div>
 	<?php if(isset($_SESSION["message"])) {print($_SESSION["message"]);}
@@ -46,4 +48,5 @@
     </div>
     <?php include 'templates/footer.php'; ?>
   </body>
+  
 </html>

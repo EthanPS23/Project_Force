@@ -22,6 +22,7 @@
     <script src="stylejs.js"></script>
 </head>
 <body>
+  <div id="wrap">
   <?php include("templates/header.php"); ?>
     <div class="main">
         <!-- packages are loaded into an array and displayed individually for each package -->
@@ -71,6 +72,7 @@
             }
 
         ?>
+    </div>
     </div>
     <?php include("templates/footer.php"); ?>
 </body>

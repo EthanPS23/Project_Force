@@ -29,18 +29,28 @@
   margin-right:0.5em;
 }
 
-footer{
+.footer{
   background-color: deepskyblue;
-  margin-top:40px;
+  margin-top:-40px;
   position: relative;
   height: 40px;
   align-items: center;
   padding-top:10px;
+  clear: both;
 }
 body{
   margin: 0;
   padding:0;
-  height:100%;
+}
+#wrap{
+  min-height: 100%;
+}
+html, body{
+  height: 100%;
+}
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
 .cardbkg{
   /*background:rgb(211, 211, 211);*/
