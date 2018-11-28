@@ -3,6 +3,8 @@
 	include_once("functions.php");
 	session_start();
 
+$_REQUEST["CustPassword"] = password_hash($_REQUEST["CustPassword"], PASSWORD_DEFAULT);
+
 	$customerObj = new Customer($_REQUEST);
 		$_SESSION["custObj"] = $customerObj;
 		
@@ -19,15 +21,24 @@
 		$_REQUEST['CustPassword']);
 		*/
 
+
 //insert $agents array to the insertcustomer function
 	if (isset($_REQUEST["CustFirstName"]))
 	{
 		//validate the form data
 		//if data is okay
 		//pass array to insertagent() function
-		if (insertcustomer($_REQUEST))
+		$insertcust = insertcustomer($_REQUEST);
+		if ($insertcust && isset($_SESSION["package"]))
 		{
-			print("Data inserted successfully");
+			$_SESSION["custpackage"] = $customerObj;
+			$_SESSION["logged-in"] = true;
+			header("Location: packagereg.php");
+		}
+		else if ($insertcust)
+		{
+			$_SESSION["logged-in"] = true;
+			header("Location: verifyLogin.php");
 		}
 		else
 		{
