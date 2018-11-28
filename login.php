@@ -42,6 +42,11 @@
             </div>
           </div>
           <!-- Submit and reset buttons-->
+          <span>
+            Don't have an account?
+            <a href="Register_Page.php">Register here.</a>
+          </span><br>
+
           <input type="submit" class="btn-primary btn-lg" value="Log-In" />
 					<input type="reset" class="btn-secondary btn-sm" onclick="return confirm('Do you really want to reset?');" />
         </form>
