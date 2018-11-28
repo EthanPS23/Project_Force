@@ -29,7 +29,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" onmouseover="changeColorG(this)" onmouseout="defaultColor(this)">
-        <a class="nav-link" href="accountCheck.php"></span>
+        <a class="nav-link" href="accountCheck.php">
           <?php
             if(!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
               print("Sign In");
