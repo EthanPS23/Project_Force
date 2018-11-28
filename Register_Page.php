@@ -2,7 +2,6 @@
   $pageName = "Register";
   $pageTitle = "Register With Us";
   session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
