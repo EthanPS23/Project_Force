@@ -18,7 +18,7 @@
 		
 		public function __construct($custarray)
 		{
-			if (count($custarray) == 14) {
+			if (isset($custarray['AgentId'])) {
 				$this->CustomerId = $custarray[0];
 				$this->CustFirstName = $custarray[1];
 				$this->CustLastName = $custarray[2];
@@ -34,7 +34,7 @@
 				$this->CustUserId = $custarray[12];
 				$this->CustPassword = $custarray[13];
 			}			
-			elseif (count($custarray) == 11) {
+			elseif (!isset($custarray['CustomerId']) && !isset($custarray['CustCountry']) && !isset($custarray['AgentId'])) {
 				$this->CustFirstName = $custarray['CustFirstName'];
 				$this->CustLastName = $custarray['CustLastName'];
 				$this->CustAddress = $custarray['CustAddress'];
@@ -46,6 +46,16 @@
 				$this->CustEmail = $custarray['CustEmail'];
 				$this->CustUserId = $custarray['CustUserId'];
 				$this->CustPassword = $custarray['CustPassword'];
+			}
+			elseif (isset($custarray['CustUserId']) && isset($custarray['CustPassword']) && isset($custarray['CustomerId'])) {
+				$this->CustomerId = $custarray[0];
+				$this->CustUserId = $custarray[1];
+				$this->CustPassword = $custarray[2];
+			}
+			else{
+				$this->CustomerId = "TEST";
+				$this->CustUserId = "TEST";
+				$this->CustPassword = "TEST";
 			}
 		}
 		
