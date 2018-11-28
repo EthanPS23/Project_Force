@@ -49,7 +49,7 @@
                 $values=array_values($row);
                 print("<form target=\"_self\" method=\"get\" action=\"login.php\">");
                 // creates a card and when clicked would go to the package, purchase page
-                print("<div class='box' onclick=\"window.location='Register_Page.php'\">");
+                print("<div class='box' onclick=\"window.location='pagedirect.php'\">");
                 
                 //print("<div class='box'>");
                 // displays ab image based on and image location received from the database
@@ -80,6 +80,7 @@
                 print("</form>");
                 $packages[] = new Package($values);
             }
+			$_SESSION["package"] = $packages[0];
         ?>
     </div>
     </div>
