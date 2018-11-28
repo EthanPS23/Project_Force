@@ -1,5 +1,7 @@
 <!-- Packages page loads packages from the server and generates a packages card for each package being sold -->
 <?php
+  require('Package.php');
+  session_start();
     $dbh = mysqli_connect("localhost","harv","password","travelexperts");
     if(!$dbh){
         print("Connection failed: " .mysqli_connect_errno() . "--" .mysqli_connect_errno() . "<br>");
@@ -7,19 +9,26 @@
     }
   $pageName = "Packages";
   $pageTitle = "Travel Packages";
+  $packages = array();
+  $selectedPackage = "";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title><?php print($pageTitle); ?></title>
     <!-- Packages page style sheets and javascripts -->
-    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mainStyle.css">
     <script src="stylejs.js"></script>
+    <script type="text/javascript">
+      function setPackage(){
+        sessionStorage.setItem("")
+      }
+    </script>
 </head>
 <body>
   <div id="wrap">
@@ -34,7 +43,7 @@
                 exit();
             }
             $firstrow=true;
-            // 
+            //
             while($row=mysqli_fetch_assoc($result)){
 
                 $values=array_values($row);
@@ -55,7 +64,7 @@
                 // prints out the package start and end dates
                 $date1=substr($values[2],0,-9);
                 $date2=substr($values[3],0,-9);
-                
+
                 // if the start date is less than the current date then the date is turned red and crossed out
                 if((time()-(60*60*24)) < strtotime($date1)){
                     print("<div class='dates'>$date1 to $date2</div>");
@@ -69,8 +78,8 @@
                 
                 print("</div>");
                 print("</form>");
+                $packages[] = new Package($values);
             }
-
         ?>
     </div>
     </div>
