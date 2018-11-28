@@ -48,7 +48,7 @@
           </span><br>
 
           <input type="submit" class="btn-primary btn-lg" value="Log-In" />
-					<input type="reset" class="btn-secondary btn-sm" onclick="return confirm('Do you really want to reset?');" />
+					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" />
         </form>
     </div>
 
