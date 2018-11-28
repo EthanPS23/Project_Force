@@ -5,7 +5,7 @@
     header("Location: login.php");
   }
 
-  $dbh = mysqli_connect("localhost","yosk","password","travelexperts");
+  $dbh = mysqli_connect("localhost","harv","password","travelexperts");
   if(mysqli_connect_errno()){
     die("Error: ".mysqli_connect_error()."!!!");
   }
