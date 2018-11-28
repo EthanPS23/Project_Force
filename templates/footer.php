@@ -1,4 +1,4 @@
-<footer class="container-fluid">
+<footer class="container-fluid footer">
   <div class="row justify-content-end">
       <div class="col-xs-2 footercol" id="facebook" onmouseover="changeColor(this)" onmouseout="defaultColor(this)">
         <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size:30px;color:blue;"></i></a>

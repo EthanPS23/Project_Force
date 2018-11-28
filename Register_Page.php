@@ -22,6 +22,7 @@
 	<title>Register Page</title>
 
 <body>
+	<div id="wrap">
 	<!-- Start Registraion Page -->
 	<div class="jumbotron text-center">
       <h1>Register with us!</h1>
@@ -116,6 +117,8 @@
 			</div>
 		</form>
 	</div>
+	</div>
 	<?php include("templates/footer.php"); ?>
+
 </body>
 </html>
