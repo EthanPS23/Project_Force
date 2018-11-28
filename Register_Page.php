@@ -29,7 +29,6 @@
 
 	<title><?php print($pageTitle); ?></title>
 
-<body>
 	<?php include("templates/header.php") ?>
 	<div class="container">
 		<h4>Enter your information below</h4>
@@ -111,7 +110,7 @@
 				</div>
 				<!-- Submit and reset buttons onclick confirmations and validation fuunction calls-->
 				<div class="form-row">
-					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" />
+					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" value="Register"/>
 					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" />
 				</div>
 			</div>
@@ -119,3 +118,4 @@
 	</div>
 	<?php include("templates/footer.php"); ?>
 </body>
+</html>
