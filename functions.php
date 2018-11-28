@@ -55,4 +55,26 @@
     return true;
   }
   
+  function insertBooking($booking, $customer, $packageId){
+    $sql = "INSERT INTO `bookings`(`BookingDate`, `TravelerCount`, `CustomerId`, `PackageId`) VALUES (?,?,?,?)";
+    $dbh = dbconnect();
+    if (!$dbh){
+      print("Connection erro:" . mysqli_connect_errno() . "----" . mysqli_connect_error() . "<br />");
+      exit();
+    }
+	$varDate = date("Y-m-j H:m:s");
+    $stmt = mysqli_prepare($dbh, $sql);
+    mysqli_stmt_bind_param($stmt, "ssss", $varDate, $booking, $customer, $packageId);
+
+    $result = mysqli_stmt_execute($stmt);
+    if (!$result){
+      print(mysqli_stmt_error());
+      mysqli_close($dbh);
+      return false;
+    }
+    mysqli_close($dbh);
+    return true;
+  }
+  
+  
 ?>
