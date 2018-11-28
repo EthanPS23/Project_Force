@@ -37,8 +37,11 @@
             while($row=mysqli_fetch_assoc($result)){
 
                 $values=array_values($row);
+                print("<form target=\"_self\" method=\"get\" action=\"login.php\">");
                 // creates a card and when clicked would go to the package, purchase page
                 print("<div class='box' onclick=\"window.location='Register_Page.php'\">");
+                
+                //print("<div class='box'>");
                 // displays ab image based on and image location received from the database
                 print("<div class='imgbx'>");
                 print("<img src='$values[7]' alt='$values[1]' class='flex-container'>");
@@ -62,7 +65,9 @@
                 // prints out the package description
                 print("<p>$values[4]</p>");
                 print("</div>");
+                
                 print("</div>");
+                print("</form>");
             }
 
         ?>
