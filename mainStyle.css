@@ -50,7 +50,7 @@ html, body{
 }
 #main {
   overflow:auto;
-  padding-bottom:40px; /* this needs to be bigger than footer height*/
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
 .cardbkg{
   /*background:rgb(211, 211, 211);*/
