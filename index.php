@@ -2,6 +2,7 @@
   session_start();
   $pageName = "Home";
   $pageTitle = "Main Page";
+  $_SESSION["returnPage"] = "index.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

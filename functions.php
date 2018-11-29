@@ -87,7 +87,7 @@
       print("Connection erro:" . mysqli_connect_errno() . "----" . mysqli_connect_error() . "<br />");
       exit();
     }
-	$varDate = date("Y-m-j H:m:s");
+	$varDate = date("Y-m-j H:i:s");
     $stmt = mysqli_prepare($dbh, $sql);
     mysqli_stmt_bind_param($stmt, "ssss", $varDate, $booking, $customer, $packageId);
 

@@ -2,6 +2,7 @@
 <?php
   require('Package.php');
   session_start();
+  $_SESSION["returnPage"] = "package.php";
     $dbh = mysqli_connect("localhost","harv","password","travelexperts");
     if(!$dbh){
         print("Connection failed: " .mysqli_connect_errno() . "--" .mysqli_connect_errno() . "<br>");
@@ -11,6 +12,12 @@
   $pageTitle = "Travel Packages";
   $packages = array();
   $selectedPackage = "";
+  
+  if (isset($_SESSION["bookingsuccess"]))
+  {
+	echo("<script>alert('Booking Successful')</script>");
+	unset($_SESSION["bookingsuccess"]);
+  }
   
 ?>
 <!DOCTYPE html>
