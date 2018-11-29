@@ -32,6 +32,13 @@
     </script>
 </head>
 <body>
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1>Browse Packages</h1>
+		</div>
+	</div>
+	
   <div id="wrap">
   <?php include("templates/header.php"); ?>
     <div class="main">

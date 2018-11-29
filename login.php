@@ -21,6 +21,11 @@
   <body>
     <!-- Start registration page -->
     <div id="wrap">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1>Login Here</h1>
+			</div>
+		</div>
     <?php include("templates/header.php"); ?>
     <div class="container">
       <p>Enter User ID and Password</p>

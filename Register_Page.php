@@ -7,32 +7,31 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="mainStyle.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mainStyle.css">
 	
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 	<!-- Registration Page JS -->
 	<script src="registration.js"></script>
-	<title>Register Page</title>
-
-<body>
-	<div id="wrap">
-	<!-- Start Registraion Page -->
-	<div class="jumbotron text-center">
-      <h1>Register with us!</h1>
-    </div>
-
 	<title><?php print($pageTitle); ?></title>
 
+<body>
+	<!-- Start Registraion Page -->
+<div id="wrap">	
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1>Register with us!</h1>
+		</div>
+	</div>
 	<?php include("templates/header.php") ?>
 	<div class="container">
 		<h4>Enter your information below</h4>
-		<p class="fieldhelp" id="f1"></p>
+		<p class="fieldhelp" id="f1"><br/></p>
 		<form id="form1" method="get" action="customerinsert.php">
 			<!-- First and last name -->
 			<div class="form-row">
@@ -116,8 +115,7 @@
 			</div>
 		</form>
 	</div>
-	</div>
+</div>
 	<?php include("templates/footer.php"); ?>
-
 </body>
 </html>

@@ -90,3 +90,8 @@ background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+
 .divSpacing{
   margin-top: 50px;
 }
+
+#f1{
+	display: flex;
+	color: red;
+}
