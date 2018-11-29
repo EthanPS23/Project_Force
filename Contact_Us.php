@@ -2,9 +2,11 @@
   $pageName = "Contact";
   $pageTitle = "Contact US";
   include("functions.php");
+  session_start();
+  
   $dbh= dbconnect();
 ?>
-
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
