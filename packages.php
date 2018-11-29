@@ -41,7 +41,7 @@
 <body>
 
 	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
+		<div class="container text-white">
 			<h1>Browse Packages</h1>
 		</div>
 	</div>

@@ -1,6 +1,8 @@
 <?php
 	include_once("Customer.php");
 	include_once('Package.php');
+	$pageName = "Booking";
+	$pageTitle = "Book Your Travel Adventure";	
 /* setting cache expire time  */
     session_cache_expire(30);
     session_start();
@@ -30,7 +32,11 @@
 <body>
 	<div id="wrap">
 	<!-- Start Registraion Page -->
-	<title><?php print($pageTitle); ?></title>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container text-white">
+				<h1><?php echo $pageTitle ?></h1>
+			</div>
+		</div>
 	<?php include("templates/header.php") ?>
 	<div class="container">
 

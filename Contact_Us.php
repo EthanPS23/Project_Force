@@ -1,6 +1,6 @@
 <?php
   $pageName = "Contact";
-  $pageTitle = "Contact US";
+  $pageTitle = "Contact Us";
   include("functions.php");
   session_start();
   $_SESSION["returnPage"]="Contact_Us.php";
@@ -25,8 +25,8 @@
   <body>
   
   	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1>Browse Packages</h1>
+		<div class="container text-white">
+			<h1><?php echo $pageTitle ?></h1>
 		</div>
 	</div>
   

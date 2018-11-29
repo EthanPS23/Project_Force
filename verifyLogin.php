@@ -5,10 +5,6 @@
     $_SESSION["message"] = "User ID and Password are Required";
     header("Location: login.php");
   }
-  elseif(isset($_SEESION["agent"])) {
-    unset($_SESSION["agent"]);
-    header("Location: index.php");
-  }
 
   $dbh = mysqli_connect("localhost","harv","password","travelexperts");
   if(mysqli_connect_errno()){
@@ -85,7 +81,7 @@
 
 
   if($check == false){
-    $_SESSION["message"] .= " User Id or Password Incorrect";
+    $_SESSION["message"] = " User Id or Password Incorrect";
     mysqli_close($dbh);
     header("Location: login.php");
   }

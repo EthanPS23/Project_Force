@@ -27,7 +27,7 @@
   <body id="bgAgtAgcy">
     <div class="divSpacing container row justify-content-end">
         <div class="col-md-4 text-right">
-          <a class="btn-lg btn-danger" href="verifyLogin.php"> Logout </a>
+          <a class="btn-lg btn-danger" href="accountCheck.php"> Logout </a>
         </div>
     </div>
     <div class="divSpacing container row justify-content-center align-items-bottom" style="margin-top: 15%;">

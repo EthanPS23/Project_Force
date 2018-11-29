@@ -6,6 +6,10 @@
    // $_SESSION["returnPage"] = "index.php";
     header("Location: login.php");
   }
+  elseif(isset($_SEESION["agent"])){
+	unset($_SESSION["agent"]);
+    header("Location: login.php");
+  }
   else{
     unset($_SESSION["logged-in"]);
     header("Location: index.php");

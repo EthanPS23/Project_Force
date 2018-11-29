@@ -26,7 +26,7 @@
     <!-- Start registration page -->
     <div id="wrap">
 		<div class="jumbotron jumbotron-fluid">
-			<div class="container">
+			<div class="container text-white">
 				<h1>Login Here</h1>
 			</div>
 		</div>

@@ -2,6 +2,7 @@
   $pageName = "Register";
   $pageTitle = "Register With Us";
   session_start();
+  $_SESSION["returnPage"] = "index.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@
 	<!-- Start Registraion Page -->
 	<div id="wrap">	
 		<div class="jumbotron jumbotron-fluid">
-			<div class="container">
+			<div class="container text-white">
 				<h1>Register with us!</h1>
 			</div>
 		</div>
