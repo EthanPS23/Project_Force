@@ -56,12 +56,12 @@
                 // var_dump($row[]);
                 $values=array_values($row);
                 
-                print("<form target=\"_self\" method=\"get\" action=\"packageregtest.php\">");
+                //print("<form target=\"_self\" method=\"get\" action=\"packagereg.php\">");
                 // creates a card and when clicked would go to the package, purchase page
 
                 // button type anme = packagesubmit 
                 // <?php isset(package)? $_SESSION['selected'] =$row['packageid']; )
-                print("<div class='box' onclick=\"window.location='packageregtest.php?index=$i'\">");
+                print("<div class='box' onclick=\"window.location='packagereg.php?index=$i'\">");
                 //print("<div class='box' type=\"submit\">");
 
                 
@@ -91,7 +91,7 @@
                 print("</div>");
                 
                 print("</div>");
-                print("</form>");
+                //print("</form>");
                 $packages[] = new Package($values);
                 $_SESSION['package']=$packages;
                 $i++;

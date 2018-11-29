@@ -11,6 +11,7 @@
 .jumbotron{
   background-color: deepskyblue;
   margin-bottom: 0;
+  background-image: url('Images/jumbotron.jpeg');
 }
 .carousel-item{
   max-height: 500px;
