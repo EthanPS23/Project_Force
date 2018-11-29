@@ -92,11 +92,10 @@ function validate(mainform)
 
 // Registraion form Validation End //
 
-
 function myFocus(x)
 {
 	x.style.background = "beige";
-	
+	document.getElementById("f1").style="color: red";
 	//the switch cycles each form field name for a match
 	var help = x.id;
 	switch (help)
@@ -143,7 +142,7 @@ function myFocus(x)
 function myBlur(x)
 {
 	x.style.background = "white";
-	document.getElementById("f1").style="color: red";
-	document.getElementById("f1").style.display='none';
-	document.getElementById("f1").innerHTML="";
+	//document.getElementById("f1").style="color: red";
+	//document.getElementById("f1").style.display='none';
+	document.getElementById("f1").innerHTML="<br />";
 }
