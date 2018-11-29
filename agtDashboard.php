@@ -3,6 +3,9 @@
   //functions.php used to connect to database and use insertAgent function
   include("functions.php");
   $dbh = dbconnect();
+  if (!isset($_SESSION["agent"])){
+    header("Location: index.php");
+  }
 ?>
 
 <html lang="en" dir="ltr">
@@ -22,21 +25,18 @@
     <title>Agent Dashboard</title>
   </head>
   <body id="bgAgtAgcy">
-    <div class="divSpacing container row justify-content-around">
-        <div class="col-md-4">
-          <a href="index.php"> Travel Experts HomePage </a>
-        </div>
-        <div class="col-md-4">
-          <a href="logout.php"> Logout </a>
+    <div class="divSpacing container row justify-content-end">
+        <div class="col-md-4 text-right">
+          <a class="btn-lg btn-danger" href="verifyLogin.php"> Logout </a>
         </div>
     </div>
-    <div class="divSpacing container row justify-content-around">
-      <div class="col-md-4 align-self-center">
+    <div class="divSpacing container row justify-content-center align-items-bottom" style="margin-top: 15%;">
+      <div class="col-md-4 text-center">
         <a class="btn-lg btn-primary" data-toggle="collapse" href="#collapseAgcy" role="button" aria-expanded="false" aria-controls="collapseAgcy">
         Add Agency
         </a>
       </div>
-      <div class="col-md-4 align-self-center">
+      <div class="col-md-4 text-right">
         <a class="btn-lg btn-primary" data-toggle="collapse" href="#collapseAgt" role="button" aria-expanded="false" aria-controls="collapseAgt">
         Add Agent
         </a>
@@ -59,7 +59,7 @@
           <input type="text" class="form-control" name="AgncyCity" id="AgncyCity" placeholder="City"/>
         </div>
         <div class="form-group col-md-2">
-          <label for="AgncyProv">Province/Territor</label>
+          <label for="AgncyProv">Province/Territory</label>
 				  <select id="AgncyProv" class="form-control" name="AgncyProv">
   					<option value="">Select a province/territory</option>
   					<option value="AB">AB</option>
