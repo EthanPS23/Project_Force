@@ -13,7 +13,8 @@
 		$insertBooking = insertBooking($_REQUEST["numTravellers"], $_SESSION["customer"]->getCustomerId(), $_SESSION["PackageId"]->getPackageId());
 		if ($insertBooking)
 		{
-			print("Data insert Success");
+			$_SESSION["bookingsuccess"]= true;
+			header("Location: packages.php");
 		}
 		else
 		{

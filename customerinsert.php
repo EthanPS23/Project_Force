@@ -19,7 +19,7 @@ $_REQUEST["CustPassword"] = password_hash($_REQUEST["CustPassword"], PASSWORD_DE
 		{
 			$_SESSION["customer"] = $customerObj;
 			$_SESSION["logged-in"] = true;
-			header("Location: packagereg.php");
+			header("Location: verifyLogin.php");
 		}
 		else if ($insertcust)
 		{
