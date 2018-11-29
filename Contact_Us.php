@@ -157,6 +157,7 @@
       }
     ?>
     </div>
+    <br><br>
     <?php include 'templates/footer.php'; ?>
   </body>
 </html>
