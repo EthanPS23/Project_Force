@@ -26,7 +26,7 @@ function validate(mainform)
 	var reg = /^[a-zA-Z][a-zA-Z0-9.!#$%&'*+\/=?^_`{-]+@([a-zA-Z][a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}$/;
 	if (!reg.test(mainform.elements[2].value))
 	{
-		alert("invalid email address");
+		alert("Invalid email format. Use: xxxx@domain.xxx format");
 		return false;
 	}
 	// Home phone check //
@@ -39,7 +39,7 @@ function validate(mainform)
 	var reg3 = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 	if (!reg3.test(mainform.elements[3].value))
 	{
-		alert("Invalid phone number. Use: XXX-XXX-XXXX format");
+		alert("Invalid phone number format. Use: xxx-xxx-xxxx format");
 		return false;
 	}
 	// Username check //
@@ -83,7 +83,7 @@ function validate(mainform)
 	var reg2 = /^([A-Za-z]\d[A-Za-z][-]?\d[A-Za-z]\d)/;
 	if (!reg2.test(mainform.elements[10].value))
 	{
-		alert("Invalid postal code");
+		alert("Invalid postal code format. Use X#X #X# format.");
 		return false;
 	}
 	// Confirm Submit //
