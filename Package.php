@@ -32,22 +32,22 @@ class Package
     return $this->pkgName;
   }
   public function getStartDate(){
-    return $this->packageId;
+    return $this->startDate;
   }
   public function getEndDate(){
-    return $this->pkgName;
+    return $this->endDate;
   }
   public function getDescription(){
-      return $this->packageId;
+      return $this->description;
   }
   public function getBasePrice(){
-    return $this->pkgName;
+    return $this->basePrice;
   }
   public function getCommission(){
-      return $this->packageId;
+      return $this->commission;
   }
   public function getImgLink(){
-    return $this->pkgName;
+    return $this->imgLink;
   }
 
 
