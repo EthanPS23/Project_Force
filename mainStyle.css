@@ -41,6 +41,7 @@
 body{
   margin: 0;
   padding:0;
+  padding-bottom: 0px;
 }
 #wrap{
   min-height: 99.95%;

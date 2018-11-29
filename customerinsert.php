@@ -7,20 +7,6 @@ $_REQUEST["CustPassword"] = password_hash($_REQUEST["CustPassword"], PASSWORD_DE
 
 	$customerObj = new Customer($_REQUEST);
 		$_SESSION["custObj"] = $customerObj;
-		
-		/*$_REQUEST['CustFirstName'],
-		$_REQUEST['CustLastName'],
-		$_REQUEST['CustAddress'],
-		$_REQUEST['CustCity'],
-		$_REQUEST['CustProv'],
-		$_REQUEST['CustPostal'],
-		$_REQUEST['CustHomePhone'],
-		$_REQUEST['CustBusPhone'],
-		$_REQUEST['CustEmail'],
-		$_REQUEST['CustUserId'],
-		$_REQUEST['CustPassword']);
-		*/
-
 
 //insert $customer array to the insertcustomer function
 	if (isset($_REQUEST["CustFirstName"]))
