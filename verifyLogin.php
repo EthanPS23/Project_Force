@@ -5,6 +5,10 @@
     $_SESSION["message"] = "User ID and Password are Required";
     header("Location: login.php");
   }
+  elseif(isset($_SEESION["agent"])) {
+    unset($_SESSION["agent"]);
+    header("Location: index.php");
+  }
 
   $dbh = mysqli_connect("localhost","harv","password","travelexperts");
   if(mysqli_connect_errno()){
@@ -72,6 +76,7 @@
   //&& (password_verify($_REQUEST["Password"], $resultArray2[1]))
   if(($resultArray2 = mysqli_fetch_array($result2)) && (password_verify($_REQUEST["Password"], $resultArray2[1])))
   {
+    $_SESSION["agent"]=true;
     header("Location: agtDashboard.php");
     $check = true;
   }
