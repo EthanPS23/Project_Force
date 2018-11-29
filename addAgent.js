@@ -1,4 +1,4 @@
-function validate(myform)
+function validateAgt(myform)
 {
   //agent first name
 	if (myform.AgtFirstName.value == "")
