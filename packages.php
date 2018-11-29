@@ -2,7 +2,7 @@
 <?php
   require('Package.php');
   session_start();
-  $_SESSION["returnPage"] = "package.php";
+  $_SESSION["returnPage"] = "packages.php";
     $dbh = mysqli_connect("localhost","harv","password","travelexperts");
     if(!$dbh){
         print("Connection failed: " .mysqli_connect_errno() . "--" .mysqli_connect_errno() . "<br>");

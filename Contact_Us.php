@@ -3,6 +3,7 @@
   $pageTitle = "Contact US";
   include("functions.php");
   session_start();
+  $_SESSION["returnPage"]="Contact_Us.php";
   
   $dbh= dbconnect();
 ?>

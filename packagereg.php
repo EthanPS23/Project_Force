@@ -4,7 +4,7 @@
 /* setting cache expire time  */
     session_cache_expire(30);
     session_start();
-	$_SESSION["returnPage"] = "index.php";
+	$_SESSION["returnPage"] = "packages.php";
 /* checks whether the session is logged in and returns to login.php if session is not logged-in */
     if (!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
         header("Location: login.php");

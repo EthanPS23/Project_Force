@@ -3,7 +3,7 @@
   session_start();
 
   if(!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
-    $_SESSION["returnPage"] = "index.php";
+   // $_SESSION["returnPage"] = "index.php";
     header("Location: login.php");
   }
   else{
