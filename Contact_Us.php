@@ -25,6 +25,7 @@
       #query number of agencies
       $sqlAgc = "SELECT `AgencyId` FROM `agencies`";
       $resultAgc = mysqli_query($dbh, $sqlAgc);
+      //length of query (i.e.: num of rows)
       $AgcLength=mysqli_num_rows($resultAgc);
 
       #query number of agents
@@ -35,14 +36,21 @@
       {
         $data[] = $row;
       }
+
+      //fetch unique values in AgtPosition table, store it in an array that can be referenced
       $positionUnique = array_values(array_unique(array_column($data, 'AgtPosition')));
-      $positiontest = array_values($positionUnique);
+      //$positiontest = array_values($positionUnique);
+
+      //remove spaces in $positionUnique values, store it an array that can be referenced (useful when looping for a unique identifier ie: "id")
       $positionUniqueNS = str_replace(" ", "", $positionUnique);
     ?>
 
     <!--Section to import and display all agencies-->
     <div class="container justify-content-center">
     <?php
+
+      //set a looping variable "$j" that will define the maximum amount of cards
+      //displayed in one row (when full screen), in this case 4.
       $j=0;
       for ($i=1; $i<=$AgcLength; $i++)
       {
@@ -60,7 +68,9 @@
         {
           if ($j%4==0)
           {
-            print ("<div class='card-deck'>");
+            //print the first row that will contain a maximum of 4 cards (i.e.: displaying 4 agencies)
+            //if more than for, another row containing a maximum of 4 cards will be printed and so on
+            print ("<div class='card-deck' style='margin-top: 20px;'>");
           }
           print("<div class='card cardbkg' style='width: 100px'>
                   <img class='card-img-top' src='Images/logo.jpg' alt='Card image cap'>
@@ -76,6 +86,7 @@
                     <li class='list-group-item'><i class='fa fa-phone'></i> " .$row['AgncyPhone'] . "</li>
                     <li class='list-group-item'><i class='fa fa-fax'></i> ". $row['AgncyFax']."</li>
                     <li class='list-group-item'><p>Contact a travel agent directly!</p>");
+
           for ($m=0; $m<count($positionUnique);$m++)
           {
             print("<a href='#collapse" . $positionUniqueNS[$m] . $i . "'class='btn btn-primary' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapse".  $positionUniqueNS[$m] . $i . "'>" .  $positionUnique[$m] . "</br></a>");
@@ -111,10 +122,10 @@
           {
             if ($k==0)
             {
-              print("<div class='card-deck collapse' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
+              print("<div class='card-deck collapse justify-content-center' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
             }
-            print("<div class='card collapse cardbkg'>
-                    <img class='card-img-top' src='Images/obama.jpg' alt='Card image cap'>
+            print("<div class='col-md-3 card collapse cardbkg text-center'>
+                    <img class='imgDC' src='Images/obama.jpg' alt='Card image cap'>
                     <div class='card-body'>
                       <h5 class='card-title'>" . $rowJr['AgtFirstName'] . " " . $rowJr['AgtMiddleInitial'] . " " . $rowJr['AgtLastName'] . "</h5>
                       <p>" . $positionUnique[$m] . "</p>
@@ -128,7 +139,7 @@
             if($k%4==0 && $k!=$JrLgth)
             {
               print("</div>");
-              print("<div class='card-deck collapse' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
+              print("<div class='card-deck collapse justify-content-center' style='margin-top: 20px;' id='collapse" . $positionUniqueNS[$m] . $i . "'>");
             }
             if($k==$JrLgth)
             {

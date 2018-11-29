@@ -69,6 +69,13 @@ html, body{
 	border-style: unset;
 }
 
+.imgDC{
+  width:70%;
+  height:40%;
+  margin-top: 10px;
+  margin-left:15%;
+}
+
 .btn-info {
 	border-style: unset;
 }
