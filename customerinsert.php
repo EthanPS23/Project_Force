@@ -22,7 +22,7 @@ $_REQUEST["CustPassword"] = password_hash($_REQUEST["CustPassword"], PASSWORD_DE
 		*/
 
 
-//insert $agents array to the insertcustomer function
+//insert $customer array to the insertcustomer function
 	if (isset($_REQUEST["CustFirstName"]))
 	{
 		//validate the form data

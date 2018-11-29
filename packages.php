@@ -51,10 +51,12 @@
                 
                 print("<form target=\"_self\" method=\"get\" action=\"packageregtest.php\">");
                 // creates a card and when clicked would go to the package, purchase page
+
                 // button type anme = packagesubmit 
                 // <?php isset(package)? $_SESSION['selected'] =$row['packageid']; )
                 print("<div class='box' onclick=\"window.location='packageregtest.php?index=$i'\">");
                 //print("<div class='box' type=\"submit\">");
+
                 
                 //print("<div class='box'>");
                 // displays ab image based on and image location received from the database
@@ -88,8 +90,10 @@
                 $i++;
                 
             }
+
             
             //echo $_SESSION['pack']->getPkgName();
+
         ?>
         
     </div>

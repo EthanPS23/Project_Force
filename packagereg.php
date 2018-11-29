@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?PHP
+include_once("Customer.php");
+include_once("Package.php");
+
 	session_start();
 	if (!isset($_SESSION["logged-in"]))
 	{
@@ -7,7 +10,9 @@
 	}
 	elseif (!isset($_SESSION["package"]) || !isset($_SESSION["customer"]))
 	{
-		header("Location: packages.php");
+		echo $_SESSION["customer"]->getCustomerId();
+		echo $_SESSION["package"]->getPackageId();
+		//header("Location: packages.php");
 	}
 ?>
 <html lang="en">
@@ -30,7 +35,7 @@
 	<title><?php print($pageTitle); ?></title>
 	<?php include("templates/header.php") ?>
 	<div class="container">
-		<form id="form1" method="get" action="bouncer.php">
+		<form id="form1" method="get" action="bookingInsert.php">
 			<!-- First and last name -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
@@ -39,9 +44,8 @@
 				</div>				
 			</div>			
 			<!-- Submit and reset buttons -->
-			</div class="form-row">
-					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" value="Book Package" />
-					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" value="Reset"/>
+			<div class="form-row">
+					<input type="submit" class="btn-primary btn-lg" value="Book Package" />
 			</div>
 		</form>
 	</div>
