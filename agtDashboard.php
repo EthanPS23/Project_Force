@@ -42,7 +42,7 @@
         </a>
       </div>
     </div>
-    <form class="divSpacing container collapse" method="post" action="bouncer.php" id="collapseAgcy">
+    <form class="divSpacing container collapse" method="post" action="insertAgency.php" id="collapseAgcy">
       <div class="row justify-content-between">
         <div class="col-md-4">
           <h1> Agency Information </h1>
@@ -62,19 +62,19 @@
           <label for="AgncyProv">Province/Territor</label>
 				  <select id="AgncyProv" class="form-control" name="AgncyProv">
   					<option value="">Select a province/territory</option>
-  					<option value="ab">AB</option>
-  					<option value="bc">BC</option>
-  					<option value="mb">MB</option>
-  					<option value="nb">NB</option>
-  					<option value="nl">NL</option>
-  					<option value="nt">NT</option>
-  					<option value="ns">NS</option>
-  					<option value="nu">NU</option>
-  					<option value="on">ON</option>
-  					<option value="pe">PE</option>
-  					<option value="qc">QC</option>
-  					<option value="sk">SK</option>
-  					<option value="yk">YK</option>
+  					<option value="AB">AB</option>
+  					<option value="BC">BC</option>
+  					<option value="MB">MB</option>
+  					<option value="NB">NB</option>
+  					<option value="NL">NL</option>
+  					<option value="NT">NT</option>
+  					<option value="NS">NS</option>
+  					<option value="NU">NU</option>
+  					<option value="ON">ON</option>
+  					<option value="PE">PE</option>
+  					<option value="QC">QC</option>
+  					<option value="SK">SK</option>
+  					<option value="YK">YK</option>
 				  </select>
         </div>
         <div class="form-group col-md-2">
@@ -106,7 +106,7 @@
 
     <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
     <!--Add Agent Form-->
-    <form class="divSpacing container collapse" method="post" action="addAgent.php" id="collapseAgt">
+    <form class="divSpacing container collapse" method="post" action="insertAgent.php" id="collapseAgt">
       <div class="row justify-content-between">
         <div class="col-md-4">
           <h1> Agent Information </h1>
@@ -143,9 +143,9 @@
           <label for="AgtPosition">Agent Position</label>
           <select id="AgtPosition" class="form-control" name="AgtPosition">
   					<option value="">Select agent position</option>
-  					<option value="Jr">Junior Agent</option>
-  					<option value="Itm">Intermediate Agent</option>
-  					<option value="Sr">Senior Agent</option>
+  					<option value="Junior Agent">Junior Agent</option>
+  					<option value="Intermediate Agent">Intermediate Agent</option>
+  					<option value="Senior Agent">Senior Agent</option>
           </select>
         </div>
         <div class="form-group col-md-6">
@@ -170,7 +170,7 @@
       <!--Confirm or cancel form -->
       <div class="form-row justify-content-around">
         <div class="form-group col-md-2">
-          <input type="submit" class="btn-primary btn-lg" value="Submit" onclick="return validate(this.form);" />
+          <input type="submit" class="btn-primary btn-lg" value="Submit" onclick="return validateAgt(this.form);" />
         </div>
         <div class="form-group col-md-2">
           <input type="reset"class="btn-secondary btn-sm" value="Cancel" onclick="return confirm('Do you really want to cancel?');" />
