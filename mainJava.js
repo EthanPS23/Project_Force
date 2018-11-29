@@ -1,5 +1,5 @@
 function changeColor(bgColor){
-  bgColor.style.backgroundColor = "rgba(232, 73, 73, 5)";
+  bgColor.style.backgroundColor = "rgba(37, 79, 172, 0.48)";
 }
 
 function changeColorG(bgColor){
