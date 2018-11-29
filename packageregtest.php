@@ -1,12 +1,16 @@
 <?php
+	include_once("Customer.php");
 	include_once('Package.php');
 /* setting cache expire time  */
     session_cache_expire(30);
     session_start();
 /* checks whether the session is logged in and returns to login.php if session is not logged-in */
     if (!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
-        $_SESSION["returnpage"]="forms.php";
         header("Location: login.php");
+	}
+	elseif (!isset($_SESSION["package"]) || !isset($_SESSION["customer"]))
+	{
+		header("Location: packages.php");
 	}
 
 ?>
@@ -31,12 +35,14 @@
 
 	<?php
 
-		if(!isset($_SESSION['pack'])){
+		if(!isset($_SESSION['package'])){
 			echo 'Data was not gathered';
 		}
 		else{
-			$packArray =  $_SESSION['pack'];
+			$packArray =  $_SESSION['package'];
 			$selected = $packArray[$_GET["index"]];
+			$_SESSION['PackageId']=$selected;
+			//echo $_SESSION['PackageId']+2 . " Added two to the number " . $_SESSION['PackageId'] . " showing that it is a number";
 		}
 
 		$PkgName=$selected->getPkgName();
@@ -79,19 +85,17 @@
 	
 		
 	?>
-		<form id="form1" method="get" action="bouncer.php">
-			<!-- First and last name -->
+		<form id="form1" method="get" action="bookingInsert.php">
+			<!-- Number of travellers -->
 			<div class="form-row justify-content-center">
 				<div class="form-group col-md-2">
 					<label for="numTravellers">Number of Travellers</label>
 					<input type="number" id="numTravellers" name="numTravellers" class="form-control" placeholder="1" min="1">
-				</div>				
-			</div>			
-			<!-- Submit and reset buttons -->
-			<!-- </div class="form-row"> -->
+
 					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" value="Book Package" />
 					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" value="Reset"/>
-			<!-- </div> -->
+				</div>
+			</div>	
 		</form>
 	</div>
 	</div>

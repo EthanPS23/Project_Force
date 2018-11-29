@@ -2,6 +2,10 @@
 //login would usually use a secure socket layer (https)
   session_cache_expire(30);
   session_start();
+  if (isset($_SESSION["logged-in"]) ){
+        $_SESSION["returnpage"]="index.php";
+        header("Location: index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

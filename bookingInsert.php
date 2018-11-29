@@ -9,7 +9,8 @@
 		//validate the form data
 		//if data is okay
 		//pass array to insertBooking() function
-		$insertBooking = insertBooking($_REQUEST["numTravellers"], $_SESSION["customer"]->getCustomerId(), $_SESSION["package"]->getPackageId());
+		//echo $_SESSION['PackageId'];
+		$insertBooking = insertBooking($_REQUEST["numTravellers"], $_SESSION["customer"]->getCustomerId(), $_SESSION["PackageId"]->getPackageId());
 		if ($insertBooking)
 		{
 			print("Data insert Success");

@@ -93,11 +93,11 @@
                 print("</div>");
                 print("</form>");
                 $packages[] = new Package($values);
-                $_SESSION['pack']=$packages;
+                $_SESSION['package']=$packages;
                 $i++;
                 
             }
-
+            
             
             //echo $_SESSION['pack']->getPkgName();
 
