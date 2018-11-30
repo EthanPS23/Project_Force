@@ -51,7 +51,7 @@
           <!-- Submit and reset buttons-->
           <span>
             Don't have an account?
-            <a href="Register_Page.php">Register here.</a>
+            <a href="registerPage.php">Register here.</a>
           </span><br>
 
           <input type="submit" class="btn-primary btn-lg" value="Log-In" />
