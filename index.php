@@ -45,11 +45,45 @@
     <div>
 	<?php if(isset($_SESSION["message"])) {print($_SESSION["message"]);}
 			else(print("Not set"))?>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div class="text-center" style="margin-top: 3%;">
+        <h1>Here's what our customers say about us!</h1>
+      </div>
+      <div class="container" style="margin-top: 3%;">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-4">
+            <!-- style="width: 18rem;" -->
+            <div class="card bg-primary" style="width: 18rem;">
+              <img class="card-img-top img-circle imgDC" src="Images/Dwight.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Thanks Travel Experts</h5>
+                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card bg-primary" style="width: 18rem;">
+              <img class="card-img img-circle imgDC" src="Images/Scott.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Who knew booking was that easy?</h5>
+                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card bg-primary" style="width: 18rem;">
+              <img class="card-img rounded-circle imgDC" src="Images/hudson.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Awesome service!</h5>
+                <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ull</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     </div>
+    <br/><br/>
     <?php include 'templates/footer.php'; ?>
   </body>
-  
+
 </html>

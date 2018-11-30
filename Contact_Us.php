@@ -4,7 +4,7 @@
   include("functions.php");
   session_start();
   $_SESSION["returnPage"]="Contact_Us.php";
-  
+
   $dbh= dbconnect();
 ?>
 <!DOCTYPE html>
@@ -23,13 +23,13 @@
     <title>Main Page</title>
   </head>
   <body>
-  
+
   	<div class="jumbotron jumbotron-fluid">
 		<div class="container text-white">
 			<h1><?php echo $pageTitle ?></h1>
 		</div>
 	</div>
-  
+
     <div id="wrap">
     <?php include("templates/header.php");
       #query number of agencies
