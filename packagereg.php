@@ -15,7 +15,7 @@
 	//Package Id set here
 	elseif (isset($_GET["index"])){
 		$_SESSION['chosenIndex'] = $_GET["index"];
-		$packArray =  $_SESSION['package'];
+		$packArray =  $_SESSION['packages'];
 		$selected = $packArray[$_SESSION['chosenIndex']];
 		$_SESSION['PackageId']=$selected;
 		$_SESSION['returnPage'] = "packagereg.php";
