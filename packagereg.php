@@ -7,14 +7,21 @@
     session_cache_expire(30);
     session_start();
 	//$_SESSION["returnPage"] = "packages.php";
-	//Check if page was enterednormally and sets the chosen package if so
-	if(!isset($_SESSION['packages']) && !isset($_GET["index"])){
-		header("Location: packages.php");
+
+	//Check if page was entered normally and sets the chosen package, redirect if not
+	if(!isset($_SESSION['packages'])){
+		header("Location: index.php");
 	}
-	else{
+	//Package Id set here
+	elseif (isset($_GET["index"])){
+		$_SESSION['chosenIndex'] = $_GET["index"];
 		$packArray =  $_SESSION['package'];
-		$selected = $packArray[$_GET["index"]];
+		$selected = $packArray[$_SESSION['chosenIndex']];
 		$_SESSION['PackageId']=$selected;
+		$_SESSION['returnPage'] = "packagereg.php";
+	}
+	elseif(!isset($_SESSION['PackageId'])){
+		header("Location: index.php");
 	}
 /* checks whether the session is logged in and returns to login.php if session is not logged-in */
   if (!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){

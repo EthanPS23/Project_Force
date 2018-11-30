@@ -12,13 +12,13 @@
   $pageTitle = "Travel Packages";
   $packages = array();
   $selectedPackage = "";
-  
+
   if (isset($_SESSION["bookingsuccess"]))
   {
 	echo("<script>alert('Booking Successful')</script>");
 	unset($_SESSION["bookingsuccess"]);
   }
-  
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +45,7 @@
 			<h1>Browse Packages</h1>
 		</div>
 	</div>
-	
+
   <div id="wrap">
   <?php include("templates/header.php"); ?>
     <div class="main">
@@ -62,16 +62,16 @@
             while($row=mysqli_fetch_assoc($result)){
                 // var_dump($row[]);
                 $values=array_values($row);
-                
+
                 //print("<form target=\"_self\" method=\"get\" action=\"packagereg.php\">");
                 // creates a card and when clicked would go to the package, purchase page
 
-                // button type anme = packagesubmit 
+                // button type anme = packagesubmit
                 // <?php isset(package)? $_SESSION['selected'] =$row['packageid']; )
                 print("<div class='box' onclick=\"window.location='packagereg.php?index=$i'\">");
                 //print("<div class='box' type=\"submit\">");
 
-                
+
                 //print("<div class='box'>");
                 // displays ab image based on and image location received from the database
                 print("<div class='imgbx'>");
@@ -96,20 +96,20 @@
                 // prints out the package description
                 print("<p>$values[4]</p>");
                 print("</div>");
-                
+
                 print("</div>");
                 //print("</form>");
                 $packages[] = new Package($values);
-                $_SESSION['package']=$packages;
+                $_SESSION['packages']=$packages;
                 $i++;
-                
+
             }
-            
-            
+
+
             //echo $_SESSION['pack']->getPkgName();
 
         ?>
-        
+
     </div>
     </div>
     <?php include("templates/footer.php"); ?>
