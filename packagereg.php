@@ -105,6 +105,7 @@
 			</div>	
 		</form>
 	</div>
+	<br /><br />
 	</div>
 	<?php include("templates/footer.php"); ?>
 </body>
