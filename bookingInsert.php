@@ -14,6 +14,7 @@
 		if ($insertBooking)
 		{
 			$_SESSION["bookingsuccess"]= true;
+			unset($_SESSION["PackageId"]);
 			header("Location: packages.php");
 		}
 		else

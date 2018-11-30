@@ -2,20 +2,28 @@
 	include_once("Customer.php");
 	include_once('Package.php');
 	$pageName = "Booking";
-	$pageTitle = "Book Your Travel Adventure";	
+	$pageTitle = "Book Your Travel Adventure";
 /* setting cache expire time  */
     session_cache_expire(30);
     session_start();
-	$_SESSION["returnPage"] = "packages.php";
-/* checks whether the session is logged in and returns to login.php if session is not logged-in */
-    if (!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
-        header("Location: login.php");
-	}
-	elseif (!isset($_SESSION["package"]) || !isset($_SESSION["customer"]))
-	{
+	//$_SESSION["returnPage"] = "packages.php";
+	//Check if page was enterednormally and sets the chosen package if so
+	if(!isset($_SESSION['packages']) && !isset($_GET["index"])){
 		header("Location: packages.php");
 	}
-
+	else{
+		$packArray =  $_SESSION['package'];
+		$selected = $packArray[$_GET["index"]];
+		$_SESSION['PackageId']=$selected;
+	}
+/* checks whether the session is logged in and returns to login.php if session is not logged-in */
+  if (!isset($_SESSION["logged-in"]) || !$_SESSION["logged-in"]){
+        header("Location: login.php");
+	}
+	elseif (!isset($_SESSION["customer"]))
+	{
+		header("Location: login.php");
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,29 +49,18 @@
 	<div class="container">
 
 	<?php
+		$PkgName=$_SESSION['PackageId']->getPkgName();
+		$startDate=$_SESSION['PackageId']->getStartDate();
+		$endDate=$_SESSION['PackageId']->getEndDate();
+		$description=$_SESSION['PackageId']->getDescription();
+		$basePrice=$_SESSION['PackageId']->getBasePrice();
+		$commission=$_SESSION['PackageId']->getCommission();
+		$ImgLink=$_SESSION['PackageId']->getImgLink();
 
-		if(!isset($_SESSION['package'])){
-			echo 'Data was not gathered';
-		}
-		else{
-			$packArray =  $_SESSION['package'];
-			$selected = $packArray[$_GET["index"]];
-			$_SESSION['PackageId']=$selected;
-			//echo $_SESSION['PackageId']+2 . " Added two to the number " . $_SESSION['PackageId'] . " showing that it is a number";
-		}
-
-		$PkgName=$selected->getPkgName();
-		$startDate=$selected->getStartDate();
-		$endDate=$selected->getEndDate();
-		$description=$selected->getDescription();
-		$basePrice=$selected->getBasePrice();
-		$commission=$selected->getCommission();
-		$ImgLink=$selected->getImgLink();
-		
 
         // creates a card and when clicked would go to the package, purchase page
         print("<div class='box'>");
-                
+
         // displays ab image based on and image location received from the database
         print("<div class='imgbx'>");
         print("<img src='$ImgLink' alt='$PkgName' class='flex-container'>");
@@ -87,10 +84,10 @@
         // prints out the package description
         print("<p>$description</p>");
         print("</div>");
-                
+
         print("</div>");
-	
-		
+
+
 	?>
 		<form id="form1" method="get" action="bookingInsert.php">
 			<!-- Number of travellers -->
@@ -102,7 +99,7 @@
 					<input type="submit" class="btn-primary btn-lg" onclick="return validate(this.form);" value="Book Package" />
 					<input type="reset" class="btn-info btn-sm" onclick="return confirm('Do you really want to reset?');" value="Reset"/>
 				</div>
-			</div>	
+			</div>
 		</form>
 	</div>
 	</div>
