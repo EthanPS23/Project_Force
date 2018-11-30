@@ -1,6 +1,6 @@
 <?php
 //list of all pages that are on nav bar
-    $pageArray = array("Home" => "index.php", "Packages" => "packages.php" , "Register" => "Register_Page.php", "Contact" => "Contact_Us.php");
+    $pageArray = array("Home" => "index.php", "Packages" => "packages.php" , "Register" => "registerPage.php", "Contact" => "contactUs.php");
 ?>
 <script src="mainJava.js"></script>
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top">

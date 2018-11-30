@@ -3,7 +3,7 @@
   $pageTitle = "Contact Us";
   include("functions.php");
   session_start();
-  $_SESSION["returnPage"]="Contact_Us.php";
+  $_SESSION["returnPage"]="contactUs.php";
 
   $dbh= dbconnect();
 ?>
@@ -79,10 +79,10 @@
           if ($j%4==0)
           {
             //print the first row that will contain a maximum of 4 cards (i.e.: displaying 4 agencies)
-            //if more than for, another row containing a maximum of 4 cards will be printed and so on
+            //if more than 4, another row containing a maximum of 4 cards will be printed and so on
             print ("<div class='card-deck' style='margin-top: 20px;'>");
           }
-          print("<div class='card cardbkg' style='width: 100px'>
+          print("<div class='card cardbkg'>
                   <img class='card-img-top' src='Images/logo.jpg' alt='Card image cap'>
                   <div class='card-body'>
                     <h5 class='card-title'>Agency Number " . $row['AgencyId'] . "</h5>
@@ -97,6 +97,7 @@
                     <li class='list-group-item'><i class='fa fa-fax'></i> ". $row['AgncyFax']."</li>
                     <li class='list-group-item'><p>Contact a travel agent directly!</p>");
 
+          //loop through the various unique positions (in this case Junior/Intermediate/Senior Agent)
           for ($m=0; $m<count($positionUnique);$m++)
           {
             print("<a href='#collapse" . $positionUniqueNS[$m] . $i . "'class='btn btn-primary' data-toggle='collapse' role='button' aria-expanded='false' aria-controls='collapse".  $positionUniqueNS[$m] . $i . "'>" .  $positionUnique[$m] . "</br></a>");
@@ -104,6 +105,7 @@
           print("</li></ul></div>");
 
           $j++;
+          //if there are 4 cards printed in a row or if there are no more cards to be printed:
           if ($j%4==0 || $j==$AgcLength)
           {
             print("</div><br />");
@@ -114,15 +116,19 @@
     </div>
     <?php
       #Section to import and display agents according to their positions
+
+      //loop through the number of agencies available
       for ($i=1; $i<=$AgcLength; $i++)
       {
+        //variable $m used to loop through database to get the unique positions
         for ($m=0; $m<count($positionUniqueNS); $m++)
         {
-          #Junior agents in a given agency
+          #agents in a given agency
           $sqlJr = "SELECT `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName`, `AgtBusPhone`, `AgtEmail` FROM `agents` WHERE `AgencyId`=$i AND `AgtPosition`='$positionUnique[$m]'";
           $resultJr=mysqli_query($dbh, $sqlJr);
           $JrLgth=mysqli_num_rows($resultJr);
 
+          //variable $k used to have a maxiumum number of printed cards per row (in this case 4)
           $k=0;
           if (!$resultJr){
           echo "One or more request failed";
