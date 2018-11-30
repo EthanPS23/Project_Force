@@ -43,8 +43,6 @@
 
 
     <div>
-	<?php if(isset($_SESSION["message"])) {print($_SESSION["message"]);}
-			else(print("Not set"))?>
       <div class="text-center" style="margin-top: 3%;">
         <h1>Here's what our customers say about us!</h1>
       </div>
