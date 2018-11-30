@@ -153,7 +153,7 @@
           <select class="form-control" id="AgencyId" name="AgencyId">
             <option selected value="">Select Agency</option>
             <?php
-              $sql = "SELECT `AgencyId` FROM `agencies`";
+              $sql = "SELECT `AgencyId`, `AgncyAddress`,`AgncyCity` FROM `agencies`";
               $result = mysqli_query($dbh, $sql);
               if (!$result){
                 echo "Unable to process request, call tech support";
@@ -161,7 +161,7 @@
               }
               //get the values from the database
               while ($row = mysqli_fetch_row($result)){
-                print ("<option value='$row[0]'>$row[0]</option>");
+                print ("<option value='$row[0]'>$row[1], $row[2]</option>");
               }
             ?>
           </select>
