@@ -34,10 +34,14 @@
   cursor: pointer;
 }
 .box:hover{
-
   border-width: 3px;
   border-style: solid;
   border-color: deepskyblue;
+}
+.box.expired:hover{
+  border-width: 3px;
+  border-style: solid;
+  border-color: red;
 }
 .content{
   float: left;

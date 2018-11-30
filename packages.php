@@ -62,16 +62,19 @@
             while($row=mysqli_fetch_assoc($result)){
                 // var_dump($row[]);
                 $values=array_values($row);
-
-                //print("<form target=\"_self\" method=\"get\" action=\"packagereg.php\">");
                 // creates a card and when clicked would go to the package, purchase page
 
-                // button type anme = packagesubmit
-                // <?php isset(package)? $_SESSION['selected'] =$row['packageid']; )
-                print("<div class='box' onclick=\"window.location='packagereg.php?index=$i'\">");
-                //print("<div class='box' type=\"submit\">");
-
-
+                // prints out the package start and end dates
+                $date1 = substr($values[2],0,-9);
+                $date2 = substr($values[3],0,-9);
+                //check for expiry and remove onclick if expired
+                $expired = (time()-(60*60*24)) >= strtotime($date1);
+                if($expired){
+                  print("<div class='box expired'>");
+                }
+                else{
+                  print("<div class='box' onclick=\"window.location='packagereg.php?index=$i'\">");
+                }
                 //print("<div class='box'>");
                 // displays ab image based on and image location received from the database
                 print("<div class='imgbx'>");
@@ -82,12 +85,8 @@
                 print("<h2>$values[1]</h2>");
                 // prints out the package price
                 print("<div class='prices'>$" . round($values[5], 2 ) . ".00</div>");
-                // prints out the package start and end dates
-                $date1=substr($values[2],0,-9);
-                $date2=substr($values[3],0,-9);
-
                 // if the start date is less than the current date then the date is turned red and crossed out
-                if((time()-(60*60*24)) < strtotime($date1)){
+                if(!$expired){
                     print("<div class='dates'>$date1 to $date2</div>");
                 }
                 else{
