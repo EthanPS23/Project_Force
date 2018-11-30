@@ -1,5 +1,5 @@
 <?php
-
+//Page creation by: Yosuke Saito, James Sharpe and Mo Sagnia
   function dbconnect(){
     $dbh = mysqli_connect("localhost", "harv", "password", "travelexperts");
     if (!$dbh){

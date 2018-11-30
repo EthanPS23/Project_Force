@@ -1,4 +1,5 @@
 <?PHP
+//Page creation by: Yosuke Saito and James Sharpe
 	include_once("Customer.php");
 	include_once("Package.php");
 	include_once("functions.php");

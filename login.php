@@ -1,4 +1,5 @@
 <?php
+//Page creation by:Yoske Saito
 //login would usually use a secure socket layer (https)
   session_cache_expire(30);
   session_start();

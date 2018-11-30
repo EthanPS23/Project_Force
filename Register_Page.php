@@ -1,4 +1,5 @@
 <?php
+//Page creation by: James Sharpe
   $pageName = "Register";
   $pageTitle = "Register With Us";
   session_start();

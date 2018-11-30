@@ -1,4 +1,5 @@
 <?php
+//Page creation by: James Sharpe and Yosuke Saito
 	class Customer
 	{
 		private $CustomerId;

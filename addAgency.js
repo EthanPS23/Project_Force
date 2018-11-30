@@ -1,3 +1,4 @@
+//Page creation by: Mo Sagnia
 //function to validate various form inputs
 
 function validate(myform)

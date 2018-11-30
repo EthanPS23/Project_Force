@@ -1,4 +1,5 @@
 <?PHP
+//Page creation by: Yosuke Saito and James Sharpe
 	session_start();
 	
 	if (!isset($_SESSION["logged-in"]))

@@ -1,4 +1,5 @@
 <?php
+//Page creation by: Ethan Shipley
 	include_once("Customer.php");
 	include_once('Package.php');
 	$pageName = "Booking";

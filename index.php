@@ -1,4 +1,5 @@
 <?php
+//Page creation by: Yosuke Saito and Mo Sagnia
   session_start();
   $pageName = "Home";
   $pageTitle = "Main Page";

@@ -1,3 +1,4 @@
+//Page creation by: Mo Sagnia
 function changeColor(bgColor){
   bgColor.style.backgroundColor = "rgba(37, 79, 172, 0.48)";
 }

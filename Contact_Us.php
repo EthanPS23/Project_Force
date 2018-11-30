@@ -1,4 +1,5 @@
 <?php
+//Page creation by: Mo Sagnia
   $pageName = "Contact";
   $pageTitle = "Contact Us";
   include("functions.php");

@@ -1,3 +1,4 @@
+//Page creation by: Ethan Shipley
 // From site nav information used from w3schools.com/howto/howto_js_sidenav.asp
 function openNav() {
     document.getElementById("mySidenav").style.width = "150px";

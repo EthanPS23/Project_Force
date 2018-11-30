@@ -1,4 +1,4 @@
-
+//Page creation by: James Sharpe
 // Registraion form Validation Start //
 function validate(mainform)
 {

@@ -1,5 +1,6 @@
 <!-- Packages page loads packages from the server and generates a packages card for each package being sold -->
 <?php
+//Page creation by: Ethan Shipley
   require('Package.php');
   session_start();
   $_SESSION["returnPage"] = "packagereg.php";
